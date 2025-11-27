@@ -1,38 +1,26 @@
 <!DOCTYPE html>
+<!--
+  index.html — Página "Para Ella"
+  Nota: Esta versión está organizada para facilitar su lectura y mantenimiento.
+  - Estilos personalizados se encuentran en `styles.css`.
+  - Cambia versos e imágenes directamente en el HTML.
+--> 
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Para Ella</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/hugoed2106/my-princess/main/fotos/IMG_20250612_225008_663.jpg" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap');
-    
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #0a0a0a;
-    }
-    
-    .bebas {
-      font-family: 'Bebas Neue', sans-serif;
-    }
-    
-    .glitch {
-      position: relative;
-      animation: glitch 3s infinite;
-    }
-    
-    @keyframes glitch {
-      0%, 100% { transform: translate(0); }
-      33% { transform: translate(-2px, 2px); }
-      66% { transform: translate(2px, -2px); }
-    }
-  </style>
+  <!-- Estilos separados en styles.css (más claro y mantenible) -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body class="text-white overflow-x-hidden">
+  <!-- Accesibilidad: salto al contenido principal -->
+  <a href="#main" class="visually-hidden">Saltar al contenido</a>
   
-  <!-- Header caótico -->
-  <div class="relative h-screen flex items-center justify-center overflow-hidden">
+  <!-- Header: portada principal -->
+  <header class="relative h-screen flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-black to-pink-900/20"></div>
     
     <!-- Elementos decorativos dispersos -->
@@ -48,109 +36,172 @@
         — MILO J VIBES —
       </div>
     </div>
-  </div>
+  </header>
 
   <!-- Fotos dispersas -->
-  <div class="px-4 py-12 space-y-8">
+  <main id="main" class="px-4 py-12 space-y-8">
     
-    <!-- Foto 1 - Izquierda -->
-    <div class="relative -rotate-2 ml-2">
-      <div class="w-full h-80 bg-gradient-to-br from-purple-900/40 to-pink-900/40 flex items-center justify-center">
-        <span class="text-gray-500 text-sm">[ FOTO 1 ]</span>
+    <!-- Foto 1 + Verso 1: layout lado a lado (imagen a la izq, verso a la derecha) -->
+    <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+      <!-- Contenedor imagen -->
+      <section class="relative -rotate-2 md:rotate-0 md:w-1/2 ml-2">
+        <!-- Usamos padding en lugar de altura fija para que el contenedor se adapte a la imagen -->
+        <div class="w-full py-6 bg-gradient-to-br from-purple-900/40 to-pink-900/40 flex items-center justify-center">
+          <img src="fotos/20241101.jpg" alt="Foto 2 - detalle" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
+        </div>
+        <div class="absolute -bottom-3 -right-3 w-full h-full border border-purple-500/30 -z-10"></div>
+      </section>
+
+      <!-- Contenedor verso -->
+      <aside class="relative mt-0 md:mt-0 md:ml-4 md:w-1/2 max-w-xs bg-black/80 p-6 border-l-2 border-purple-500 rotate-1 md:rotate-0">
+      <div class="text-xs text-purple-400 mb-2">POEMA QUE UNA VEZ ME ESCRIBISTE:</div>
+      <p class="text-sm text-gray-200 leading-relaxed">Eres como Spreen tieso, frío y hermoso, pero sigues siendo una persona única y detergente
+Aunque a veces
+un poco serio eres muy
+importante para mí, y me haces
+reír como digo Spreen " Andate a la verga". Te quiere mucho Daiana ♡︎</p>
+      <div class="h-5" aria-hidden="true"></div>
+      <div class="h-5" aria-hidden="true"></div>
+      <p class="text-sm text-gray-200 leading-relaxed">Con todo y faltas de ortografía 😜</p>
+      </aside>
+    </div>
+
+    <!-- Foto 2 + Tu poema 1: verso a la izquierda, imagen a la derecha en md+ -->
+    <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+      <!-- Contenedor verso (izquierda en md+) -->
+      <aside class="relative -rotate-1 md:rotate-0 md:ml-0 md:w-1/2 bg-purple-950/50 p-5 border border-purple-700/30">
+        <p class="text-sm italic text-gray-300 leading-relaxed">"Con vo' entendí que nadie es perfecto<br>
+Por tus carencia' de cordura<br>
+Pero es que son tus mismos defectos<br>
+Que te hacen ser una ternura<br>
+Con vos nunca hubo nada que dudar<br>
+Si mis miedos pesan menos que mi amor<br>
+Y las ganas que tengo de volverte a abrazar<br>
+Y decirte que me muero por tenerte<br>
+Me cambiaste el mundo con una sonrisa<br>
+De repente, el sol ya no brilla tan fuerte<br>
+Como esos dos ojitos que me hipnotizan<br>
+Ay, qué delicia"</p>
+      <div class="mt-4">
+        <label for="poemaAudio1" class="sr-only">Reproductor de audio: "Cuando se llenó la luna"</label>
+        <audio id="poemaAudio1" controls preload="none" class="audio-player
+         w-full rounded-md bg-black/60">
+          <source src="audio/carencias-de-Cordura.m4a" type="audio/mpeg">
+          Tu navegador no soporta el reproductor de audio. <a href="audio/carencias-de-Cordura.m4a" class="text-pink-400 underline">Descargar audio</a>.
+        </audio>
+        <div class="text-xs text-gray-400 mt-2">Pulsa reproducir para escuchar la canción.</div>
       </div>
-      <div class="absolute -bottom-3 -right-3 w-full h-full border border-purple-500/30 -z-10"></div>
-    </div>
+      </aside>
 
-    <!-- Verso 1 - Superpuesto -->
-    <div class="relative -mt-12 mr-4 ml-auto max-w-xs bg-black/80 p-6 border-l-2 border-purple-500 rotate-1">
-      <p class="text-sm italic text-gray-300 leading-relaxed">
-        "Pon aquí un verso de Milo J que te guste..."
-      </p>
-    </div>
-
-    <!-- Foto 2 - Derecha -->
-    <div class="relative rotate-1 mr-2 ml-auto w-11/12">
-      <div class="w-full h-72 bg-gradient-to-br from-pink-900/40 to-purple-900/40 flex items-center justify-center">
-          <img src="https://raw.githubusercontent.com/hugoed2106/my-princess/main/fotos/IMG_20250612_225008_663.jpg" alt="" width="500">
-      </div>
-    </div>
-
-    <!-- Tu poema 1 -->
-    <div class="relative -rotate-1 ml-6 max-w-sm bg-purple-950/50 p-5 border border-purple-700/30">
-      <div class="text-xs text-purple-400 mb-2">TU POEMA:</div>
-      <p class="text-sm text-gray-200 leading-relaxed">
-        Escribe aquí tus versos...
-      </p>
+      <!-- Contenedor imagen (derecha en md+) -->
+      <section class="relative rotate-1 md:rotate-0 md:w-1/2 mr-0 ml-0">
+        <div class="w-full py-4 bg-gradient-to-br from-pink-900/40 to-purple-900/40 flex items-center justify-center">
+          <img src="fotos/20250622.jpg" alt="Foto 2 - detalle" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
+        </div>
+      </section>
     </div>
 
     <!-- Foto 3 - Centro -->
-    <div class="relative -rotate-2 mx-auto w-10/12">
-      <div class="w-full h-96 bg-gradient-to-br from-purple-900/40 to-black flex items-center justify-center">
+    <section class="relative -rotate-2 mx-auto w-10/12">
+      <div class="w-full py-10 bg-gradient-to-br from-purple-900/40 to-black flex items-center justify-center">
         <span class="text-gray-500 text-sm">[ FOTO 3 ]</span>
       </div>
       <div class="absolute top-2 left-2 w-full h-full border border-pink-500/20 -z-10"></div>
-    </div>
+    </section>
 
     <!-- Verso 2 -->
-    <div class="relative rotate-2 ml-8 max-w-xs bg-black/90 p-5 border-r-2 border-pink-500">
-      <p class="text-sm italic text-gray-300 leading-relaxed">
-        "Otro verso de Milo J..."
-      </p>
-    </div>
+    <aside class="relative rotate-2 ml-8 max-w-xs bg-black/90 p-5 border-r-2 border-pink-500">
+      <p class="text-sm italic text-gray-300 leading-relaxed">"Otro verso de Milo J..."</p>
+    </aside>
 
-    <!-- Foto 4 - Pequeña izquierda -->
-    <div class="relative -rotate-3 w-9/12">
-      <div class="w-full h-64 bg-gradient-to-br from-pink-900/30 to-purple-900/30 flex items-center justify-center">
-        <span class="text-gray-500 text-sm">[ FOTO 4 ]</span>
-      </div>
-    </div>
+    <!-- Foto 4 + Tu poema 2: layout lado a lado (imagen a la izq, verso a la derecha) -->
+    <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+      <!-- Contenedor imagen -->
+      <section class="relative -rotate-3 md:rotate-0 md:w-1/2">
+        <div class="w-full py-4 bg-gradient-to-br from-pink-900/30 to-purple-900/30 flex items-center justify-center">
+          <img src="fotos/20250612.jpg" alt="Foto 4" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
+        </div>
+      </section>
 
-    <!-- Tu poema 2 - Superpuesto -->
-    <div class="relative -mt-16 ml-auto mr-6 max-w-xs bg-black/80 p-6 border-l border-purple-500/50 rotate-1">
-      <div class="text-xs text-pink-400 mb-2">TUS PALABRAS:</div>
-      <p class="text-sm text-gray-200 leading-relaxed">
-        Más versos tuyos aquí...
-      </p>
+      <!-- Contenedor verso -->
+      <!-- En md+ el verso tendrá 100px más que 50%: md:w-[calc(50%+100px)] -->
+      <aside class="relative mt-0 md:mt-0 md:ml-4 md:w-[calc(50%+60px)] max-w-[calc(50%+100px)] bg-black/80 p-6 border-l border-purple-500/50 rotate-1 md:rotate-0">
+      <div class="text-xs text-pink-400 mb-2">UN POEMA:</div>
+      <p class="text-sm text-gray-200 leading-relaxed poema2c">
+Te amo demasiado,<br>
+A tal punto,<br>
+De estar exagerando,<br>
+Pero ese es el punto.<br>
+<br>
+Tan bella tu apariencia,<br>
+Tan bella tu personalidad,<br>
+Ten bella tu boca,<br>
+Para besar.<br>
+<br>
+Le agradezco a tus papás,<br>
+Por crearte,<br>
+Y a los míos,<br>
+Por aceptarte.<br>
+<br>
+Quiero verte,<br>
+Quiero besarte,<br>
+Quiero tocarte,<br>
+Pero educadamente.<br>
+<br style="display: none; @media (max-width:600px){ display: block;}">
+Quiero tener dos hijos,<br>
+Un hijo,<br>
+Una hija,<br>
+Tal vez dos perros.<br>
+<br>
+Tanto amor te doy,<br>
+Tan poco recibo yo,<br>
+Esta relación,<br>
+Va de mal en peor.<br>
+<br>
+Quiero salir con vos,<br>
+Para oír tu voz,<br>
+Está afinada,<br>
+La afinó Dios?<br>
+<br>
+Ya no me gustas,<br>
+Ahora me encantas,<br>
+Tan bella estás.<br>
+Que te quiero besar.</p>
+    </aside>
     </div>
 
     <!-- Foto 5 - Grande derecha -->
-    <div class="relative rotate-1 ml-auto w-11/12">
-      <div class="w-full h-80 bg-gradient-to-br from-purple-900/40 to-pink-900/40 flex items-center justify-center">
+    <section class="relative rotate-1 ml-auto w-11/12">
+      <div class="w-full py-6 bg-gradient-to-br from-purple-900/40 to-pink-900/40 flex items-center justify-center">
         <span class="text-gray-500 text-sm">[ FOTO 5 ]</span>
       </div>
-    </div>
+    </section>
 
     <!-- Verso 3 -->
-    <div class="relative -rotate-2 mx-auto max-w-md bg-purple-950/60 p-6 border border-purple-600/40">
-      <p class="text-sm italic text-gray-300 leading-relaxed text-center">
-        "Más letras de Milo J que te lleguen..."
-      </p>
-    </div>
+    <aside class="relative -rotate-2 mx-auto max-w-md bg-purple-950/60 p-6 border border-purple-600/40">
+      <p class="text-sm italic text-gray-300 leading-relaxed text-center">"Más letras de Milo J que te lleguen..."</p>
+    </aside>
 
     <!-- Foto 6 - Centro pequeña -->
-    <div class="relative rotate-2 mx-auto w-8/12">
-      <div class="w-full h-72 bg-gradient-to-br from-black to-purple-900/40 flex items-center justify-center">
+    <section class="relative rotate-2 mx-auto w-8/12">
+      <div class="w-full py-4 bg-gradient-to-br from-black to-purple-900/40 flex items-center justify-center">
         <span class="text-gray-500 text-sm">[ FOTO 6 ]</span>
       </div>
       <div class="absolute -bottom-2 -left-2 w-full h-full border border-pink-500/30 -z-10"></div>
-    </div>
+    </section>
 
     <!-- Tu poema 3 -->
-    <div class="relative -rotate-1 ml-4 max-w-sm bg-black/90 p-5 border-r-2 border-pink-600">
+    <section class="relative -rotate-1 ml-4 max-w-sm bg-black/90 p-5 border-r-2 border-pink-600">
       <div class="text-xs text-purple-400 mb-2">PARA ELLA:</div>
-      <p class="text-sm text-gray-200 leading-relaxed">
-        Tus últimos versos...
-      </p>
-    </div>
+      <p class="text-sm text-gray-200 leading-relaxed">Tus últimos versos...</p>
+    </section>
 
-  </div>
+  </main>
 
   <!-- Footer minimalista -->
-  <div class="py-12 text-center">
-    <div class="text-xs text-gray-600 tracking-widest">
-      MILO J STYLE
-    </div>
-  </div>
+  <footer class="py-12 text-center">
+    <div class="text-xs text-gray-600 tracking-widest">MILO J STYLE</div>
+  </footer>
 
 </body>
 </html>

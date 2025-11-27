@@ -1,0 +1,137 @@
+/* styles.css — estilos organizados para my-princess-main
+
+  - Caja de estilos principal para separar la presentación del contenido.
+  - Mantiene la dependencia de Tailwind (sigue cargándose desde CDN en HTML)
+  - Añade fuentes, clases reutilizables y animaciones personalizadas.
+*/
+
+/* --------------------------------------------------
+   Importar fuentes
+   -------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap');
+
+/* --------------------------------------------------
+   Base
+   -------------------------------------------------- */
+:root {
+    --bg-dark: #0a0a0a;
+    --accent-purple: #8b5cf6;
+    /* tailwind purple-500 family */
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-dark);
+    color: white;
+    margin: 0;
+}
+
+/* --------------------------------------------------
+   Tipografías / utilidades
+   -------------------------------------------------- */
+.bebas {
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+/* Clase para añadir un "glitch" suave */
+.glitch {
+    position: relative;
+    animation: glitch 6s infinite;
+}
+
+@keyframes glitch {
+    0%,
+    100% {
+        transform: translate(0);
+    }
+
+    33% {
+        transform: translate(-6px, 6px);
+    }
+
+    66% {
+        transform: translate(6px, -6px);
+    }
+}
+
+/* --------------------------------------------------
+   Accesibilidad / Helpers
+   -------------------------------------------------- */
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
+
+/* --------------------------------------------------
+   Notas y contenedores que usan estilos que no vienen de Tailwind
+   (sólo si es necesario — la mayor parte del layout usa clases Tailwind)
+   -------------------------------------------------- */
+.card-border-faint {
+    border: 1px solid rgba(139, 92, 246, 0.15);
+    /* purple-ish faint */
+}
+
+/* Mantener soporte para imágenes responsivas */
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.poema2c {
+/* Layout: 2 columnas con separación clara y línea divisoria sutil */
+columns: 2;
+-webkit-columns: 2;
+-moz-columns: 2;
+column-gap: 2rem;
+-webkit-column-gap: 2rem;
+column-rule: 1px solid rgba(139, 92, 246, 0.12);
+/* uso de color púrpura tenue */
+-webkit-column-rule: 1px solid rgba(139, 92, 246, 0.12);
+
+/* Legibilidad: reducir el interlineado para que no haya tanto espacio entre versos */
+line-height: 1.05;
+/* Valor pequeño para el espacio entre versos; úsalo en .poema2c > * */
+--poem-verse-gap: 0.02rem;
+
+hyphens: auto;
+-webkit-hyphens: auto;
+-moz-hyphens: auto;
+white-space: pre-wrap;
+/* conserva saltos de línea del poema */
+
+/* Evitar que elementos (párrafos, estrofas) se corten dentro de una columna */
+break-inside: avoid;
+-webkit-column-break-inside: avoid;
+page-break-inside: avoid;
+}
+
+.poema2c>* {
+    margin: 0 0 0.8rem 0;
+    /* espaciado entre líneas/estrofas */
+}
+
+/* Responsive: en pantallas pequeñas se vuelve una sola columna */
+@media (max-width: 640px) {
+    .poema2c {
+        columns: 1;
+        -webkit-columns: 1;
+        -moz-columns: 1;
+        column-gap: 1rem;
+        column-rule: none;
+    }
+}
+
+.audio-player {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+}
