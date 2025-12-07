@@ -1,19 +1,13 @@
 <!DOCTYPE html>
-<!--
-  index.html — Página "Para Ella"
-  Nota: Esta versión está organizada para facilitar su lectura y mantenimiento.
-  - Estilos personalizados se encuentran en `styles.css`.
-  - Cambia versos e imágenes directamente en el HTML.
---> 
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Para Ella</title>
-  <link rel="icon" href="https://raw.githubusercontent.com/hugoed2106/my-princess/main/fotos/IMG_20250612_225008_663.jpg" type="image/x-icon">
+  <title>Ella...</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/hugoed2106/ella/main/fotos/icon.png" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Estilos separados en styles.css (más claro y mantenible) -->
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body class="text-white overflow-x-hidden">
   <!-- Accesibilidad: salto al contenido principal -->
@@ -70,6 +64,7 @@ reír como digo Spreen " Andate a la verga". Te quiere mucho Daiana ♡︎</p>
     <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
       <!-- Contenedor verso (izquierda en md+) -->
       <aside class="relative -rotate-1 md:rotate-0 md:ml-0 md:w-1/2 bg-purple-950/50 p-5 border border-purple-700/30">
+        <div class="text-s text-white-400 mb-2">CANCIÓN QUE TE DEDICO: "Carencias de Cordura"</div>
         <p class="text-sm italic text-gray-300 leading-relaxed">"Con vo' entendí que nadie es perfecto<br>
 Por tus carencia' de cordura<br>
 Pero es que son tus mismos defectos<br>
@@ -82,12 +77,12 @@ Me cambiaste el mundo con una sonrisa<br>
 De repente, el sol ya no brilla tan fuerte<br>
 Como esos dos ojitos que me hipnotizan<br>
 Ay, qué delicia"</p>
-      <div class="mt-4">
+        <div class="mt-4">
         <label for="poemaAudio1" class="sr-only">Reproductor de audio: "Cuando se llenó la luna"</label>
-        <audio id="poemaAudio1" controls preload="none" class="audio-player
-         w-full rounded-md bg-black/60">
-          <source src="https://github.com/hugoed2106/my-princess/blob/main/audio/Carencias-de-Cordura.m4a" type="audio/mpeg">
-          Tu navegador no soporta el reproductor de audio. <a href="https://github.com/hugoed2106/my-princess/blob/main/audio/Carencias-de-Cordura.m4a" class="text-pink-400 underline">Descargar audio</a>.
+        <audio id="poemaAudio1" controls preload="metadata" class="audio-player w-full rounded-md  bg-#230937">
+          <source src="audio/carencias-de-Cordura.mp3" type="audio/mpeg">
+          Tu navegador no soporta el reproductor de audio.
+          <a href="audio/carencias-de-Cordura.mp3" class="text-pink-400 underline">Descargar audio</a>.
         </audio>
         <div class="text-xs text-gray-400 mt-2">Pulsa reproducir para escuchar la canción.</div>
       </div>
@@ -101,86 +96,159 @@ Ay, qué delicia"</p>
       </section>
     </div>
 
-    <!-- Foto 3 - Centro -->
-    <section class="relative -rotate-2 mx-auto w-10/12">
+    <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+      <!-- Contenedor imagen -->
+      <section class="relative -rotate-3 md:rotate-0 md:w-1/2">
       <div class="w-full py-10 bg-gradient-to-br from-purple-900/40 to-black flex items-center justify-center">
-        <span class="text-gray-500 text-sm">[ FOTO 3 ]</span>
+        <img src="fotos/20241207.jpg" alt="Foto 3 - detalle" class="responsive-img max-w-lg h-auto object-contain" loading="lazy">
       </div>
       <div class="absolute top-2 left-2 w-full h-full border border-pink-500/20 -z-10"></div>
     </section>
 
     <!-- Verso 2 -->
-    <aside class="relative rotate-2 ml-8 max-w-xs bg-black/90 p-5 border-r-2 border-pink-500">
-      <p class="text-sm italic text-gray-300 leading-relaxed">"Otro verso de Milo J..."</p>
+    <aside class="relative -rotate-1 md:rotate-0 md:ml-0 md:w-1/2 bg-purple-950/50 p-5 border border-purple-700/30">
+      <div class="text-s text-white-400 mb-2">CANCIÓN QUE TE DEDICO: "A VOS"</div>
+      <p class="text-sm italic text-gray-300 leading-relaxed">"No sé si es amor<br>
+Río mirando el phone<br>
+Nena, te envidia el sol<br>
+Porque brillás como él<br>
+Planetas a tu alrededor<br>
+El viento sopla a tu merced<br>
+La sábana se hizo mantel<br>
+Porque arriba quiero comerte<br>
+Tus piernas penetran mi mente<br>
+Y siento ese medio caliente<br>
+Háblame que quiero entenderte<br>
+Tas susurrándome un par de pecados<br>
+Hagámoslo lento, que yo soy paciente<br>
+Creo que sufro parálisis estando dormido<br>
+Porque estar con vos es un sueño<br>
+Ya no me importa extrañar tu calor por las noches<br>
+Porque el amor es más fuerte"</p>
+      <div class="mt-4">
+        <label for="poemaAudio1" class="sr-only">Reproductor de audio: "Cuando se llenó la luna"</label>
+        <audio id="poemaAudio1" controls preload="metadata" class="audio-player w-full rounded-md bg-#230937">
+          <source src="audio/a-vos.mp3" type="audio/mpeg">
+          Tu navegador no soporta el reproductor de audio. <a href="audio/a-vos.mp3" class="text-pink-400 underline">Descargar audio</a>.
+        </audio>
+        <div class="text-xs text-gray-400 mt-2">Pulsa reproducir para escuchar la canción.</div>
+      </div>
     </aside>
+    </div>
 
-    <!-- Foto 4 + Tu poema 2: layout lado a lado (imagen a la izq, verso a la derecha) -->
-    <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
-      <!-- Contenedor imagen -->
-      <section class="relative -rotate-3 md:rotate-0 md:w-1/2">
+      <section class="relative -rotate-2 mx-auto w-10/12">
         <div class="w-full py-4 bg-gradient-to-br from-pink-900/30 to-purple-900/30 flex items-center justify-center">
           <img src="fotos/20250612.jpg" alt="Foto 4" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
         </div>
       </section>
 
       <!-- Contenedor verso -->
-      <!-- En md+ el verso tendrá 100px más que 50%: md:w-[calc(50%+100px)] -->
-      <aside class="relative mt-0 md:mt-0 md:ml-4 md:w-[calc(50%+60px)] max-w-[calc(50%+100px)] bg-black/80 p-6 border-l border-purple-500/50 rotate-1 md:rotate-0">
+      <aside class="relative mt-0 md:mt-0 md:ml-4 md:w-full max-w-7xl bg-black/80 p-6 border-l border-purple-500/50 rotate-1 md:rotate-0">
       <div class="text-xs text-pink-400 mb-2">UN POEMA:</div>
-      <p class="text-sm text-gray-200 leading-relaxed poema2c">
-Te amo demasiado,<br>
-A tal punto,<br>
-De estar exagerando,<br>
-Pero ese es el punto.<br>
-<br>
-Tan bella tu apariencia,<br>
-Tan bella tu personalidad,<br>
-Ten bella tu boca,<br>
-Para besar.<br>
-<br>
-Le agradezco a tus papás,<br>
-Por crearte,<br>
-Y a los míos,<br>
-Por aceptarte.<br>
-<br>
-Quiero verte,<br>
-Quiero besarte,<br>
-Quiero tocarte,<br>
-Pero educadamente.<br>
-<br style="display: none; @media (max-width:600px){ display: block;}">
-Quiero tener dos hijos,<br>
-Un hijo,<br>
-Una hija,<br>
-Tal vez dos perros.<br>
-<br>
-Tanto amor te doy,<br>
-Tan poco recibo yo,<br>
-Esta relación,<br>
-Va de mal en peor.<br>
-<br>
-Quiero salir con vos,<br>
-Para oír tu voz,<br>
-Está afinada,<br>
-La afinó Dios?<br>
-<br>
-Ya no me gustas,<br>
-Ahora me encantas,<br>
-Tan bella estás.<br>
-Que te quiero besar.</p>
+      <p class="text-sm text-gray-200 leading-relaxed poema4c">
+Eras, eres y serás hermosa,
+Te dije como tal cual una rosa.
+Qué universo hay en tus ojos,
+Que están detrás de esos anteojos.
+
+Hay gran diferencia entre nosotros,
+Pero solo son estúpidos números,
+Que no pueden contra nosotros,
+Quiero saber todos tus números.
+
+Contar cada lunar, pestaña,
+Mi cuerpo si que te extraña.
+Este año visualizar tus ojos,
+Son impresionantemente preciosos.
+
+Me gusta mucho tu cuerpo,
+Tu personalidad me pierde,
+Me pierde en el tiempo,
+Por ti el mundo entero arde.
+
+No te hizo falta un filtro,
+Pues con tu brillo propio,
+Me diste momentos sin par,
+Y todos quisieran contigo estar.
+
+En cada mirada que lográs dejar,
+Hay ternura y un toque sin igual.
+La cámara debería reír cuando tu estás,
+Y el tiempo rendirse, no quisiera pasar.
+
+Sos como un verso que quiere volar,
+Y en mi vida lo hace sin pensar.
+Hasta mi corazón llega tu naturalidad,
+Como mi poesía en su libertad.
+
+Por eso este poema te quiere honrar,
+Porque sos distinta y díficil de igualar.
+Mi musa sin calma, sin pretensión,
+Ya llevas en vos la admiración.</p>
     </aside>
+
+    <!-- Foto 5 + Verso 3 (lado a lado: verso a la izquierda, foto a la derecha en md+) -->
+    <div class="flex flex-col md:flex-row-reverse items-start md:items-center gap-6">
+      <!-- Contenedor imagen (derecha en md+) -->
+      <section class="relative rotate-1 w-11/12 md:w-1/2">
+        <div class="w-full py-6 bg-gradient-to-br from-purple-900/40 to-pink-900/40 flex items-center justify-center">
+          <img src="fotos/20251020.jpg" alt="Foto 5" style="border-radius: 15px;" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
+        </div>
+      </section>
+
+      <!-- Contenedor verso (izquierda en md+) -->
+      <aside class="relative -rotate-2 mx-auto max-w-md md:w-1/2 bg-purple-950/60 p-6 border border-purple-600/40">
+        <div class="text-s text-white-400 mb-2">CANCIÓN QUE TE DEDICO: "OLIMPO"</div>
+        <p class="text-sm italic text-gray-300 leading-relaxed">"Sé que te hablo en un momento un poco extraño<br>
+Pero aún te veo en ese lado amargo de mi mente<br>
+Creí quererme y solo siento que te extraño<br>
+Porque miento y digo que conmigo mismo es suficiente<br>
+Recuerdo días en los que no te conocía<br>
+Y te miraba con ojitos de un amor adolescente<br>
+Recuerdo la monotonía que tenía<br>
+Al contemplar tu caminar y enamorarme lentamente<br>
+No entiendo por qué reprimís tus sentimientos<br>
+Con la excusa de salir en busca de autoconocerte<br>
+Sé bien de nuestras diferencias<br>
+Pero no olvides que nos enamoramos porque somos diferente'<br>
+Sigo siendo el mismo que te enamoró<br>
+Pero sin ser dueño<br>
+Del Olimpo en el que estábamo' los do'<br>
+Solo fuiste un sueño"</p>
+      <div class="mt-4">
+        <label for="poemaAudio1" class="sr-only">Reproductor de audio: "Cuando se llenó la luna"</label>
+        <audio id="poemaAudio1" controls preload="metadata" class="audio-player w-full rounded-md bg-#230937">
+          <source src="audio/olimpo.mp3" type="audio/mpeg">
+          Tu navegador no soporta el reproductor de audio. <a href="audio/olimpo.mp3" class="text-pink-400 underline">Descargar audio</a>.
+        </audio>
+        <div class="text-xs text-gray-400 mt-2">Pulsa reproducir para escuchar la canción.</div>
+      </div>
+      </aside>
     </div>
 
-    <!-- Foto 5 - Grande derecha -->
-    <section class="relative rotate-1 ml-auto w-11/12">
-      <div class="w-full py-6 bg-gradient-to-br from-purple-900/40 to-pink-900/40 flex items-center justify-center">
-        <span class="text-gray-500 text-sm">[ FOTO 5 ]</span>
+    <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+      <!-- Contenedor imagen -->
+      <section class="relative -rotate-3 md:rotate-0 md:w-1/2">
+      <div class="w-full py-10 bg-gradient-to-br from-purple-900/40 to-black flex items-center justify-center">
+        <img src="fotos/20241207.jpg" alt="Foto 3 - detalle" class="responsive-img max-w-lg h-auto object-contain" loading="lazy">
       </div>
+      <div class="absolute top-2 left-2 w-full h-full border border-pink-500/20 -z-10"></div>
     </section>
 
-    <!-- Verso 3 -->
-    <aside class="relative -rotate-2 mx-auto max-w-md bg-purple-950/60 p-6 border border-purple-600/40">
-      <p class="text-sm italic text-gray-300 leading-relaxed text-center">"Más letras de Milo J que te lleguen..."</p>
+    <!-- Verso 2 -->
+    <aside class="relative -rotate-1 md:rotate-0 md:ml-0 md:w-1/2 bg-purple-950/50 p-5 border border-purple-700/30">
+      <div class="text-s text-white-400 mb-2">CANCIÓN QUE TE DEDICO: ""</div>
+      <p class="text-sm italic text-gray-300 leading-relaxed">""</p>
+      <div class="mt-4">
+        <label for="poemaAudio1" class="sr-only">Reproductor de audio: "Cuando se llenó la luna"</label>
+        <audio id="poemaAudio1" controls preload="metadata" class="audio-player w-full rounded-md bg-#230937">
+          <source src="audio/.mp3" type="audio/mpeg">
+          Tu navegador no soporta el reproductor de audio. <a href="audio/.mp3" class="text-pink-400 underline">Descargar audio</a>.
+        </audio>
+        <div class="text-xs text-gray-400 mt-2">Pulsa reproducir para escuchar la canción.</div>
+      </div>
     </aside>
+    </div>
 
     <!-- Foto 6 - Centro pequeña -->
     <section class="relative rotate-2 mx-auto w-8/12">
@@ -191,10 +259,12 @@ Que te quiero besar.</p>
     </section>
 
     <!-- Tu poema 3 -->
-    <section class="relative -rotate-1 ml-4 max-w-sm bg-black/90 p-5 border-r-2 border-pink-600">
-      <div class="text-xs text-purple-400 mb-2">PARA ELLA:</div>
-      <p class="text-sm text-gray-200 leading-relaxed">Tus últimos versos...</p>
-    </section>
+    <aside class="relative mt-0 md:mt-0 md:ml-4 md:w-full max-w-7xl bg-black/80 p-6 border-l border-purple-500/50 rotate-1 md:rotate-0">
+      <div class="text-xs text-purple-400 mb-2">LO ÚLTIMO DE MI PARA ELLA:</div>
+      <p class="text-sm text-gray-200 leading-relaxed poema4c">
+        [ULTIMO POEMA]
+      </p>
+    </aside>
 
   </main>
 
