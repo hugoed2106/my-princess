@@ -4,20 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ella...</title>
-  <link rel="icon" href="https://raw.githubusercontent.com/hugoed2106/ella/main/fotos/icon.png" type="image/x-icon">
+  <link rel="icon" href="fotos/icon.png" type="image/x-icon">
+  <meta name="description" content="Página dedicada a Ella, con poemas, fotos y recuerdos especiales."/>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
 <body class="text-white overflow-x-hidden">
-  <!-- Accesibilidad: salto al contenido principal -->
-  <a href="#main" class="visually-hidden">Saltar al contenido</a>
-  
-  <!-- Header: portada principal -->
   <header class="relative h-screen flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-black to-pink-900/20"></div>
-    
-    <!-- Elementos decorativos dispersos -->
     <div class="absolute top-10 left-5 w-20 h-20 bg-purple-600/20 rotate-45"></div>
     <div class="absolute bottom-20 right-8 w-32 h-32 bg-pink-600/10 -rotate-12"></div>
     <div class="absolute top-1/3 right-12 w-16 h-16 border-2 border-purple-500/30 rotate-45"></div>
@@ -32,35 +27,37 @@
     </div>
   </header>
 
-  <!-- Fotos dispersas -->
   <main id="main" class="px-4 py-12 space-y-8">
-    
+    <section id="1">
     <!-- Foto 1 + Verso 1: layout lado a lado (imagen a la izq, verso a la derecha) -->
     <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
       <!-- Contenedor imagen -->
       <section class="relative -rotate-2 md:rotate-0 md:w-1/2 ml-2">
         <!-- Usamos padding en lugar de altura fija para que el contenedor se adapte a la imagen -->
         <div class="w-full py-6 bg-gradient-to-br from-purple-900/40 to-pink-900/40 flex items-center justify-center">
-          <img src="fotos/20241101.jpg" alt="Foto 2 - detalle" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
+          <img src="fotos/20241101.jpg" alt="Foto 2" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
         </div>
         <div class="absolute -bottom-3 -right-3 w-full h-full border border-purple-500/30 -z-10"></div>
       </section>
-
       <!-- Contenedor verso -->
       <aside class="relative mt-0 md:mt-0 md:ml-4 md:w-1/2 max-w-xs bg-black/80 p-6 border-l-2 border-purple-500 rotate-1 md:rotate-0">
       <div class="text-xs text-purple-400 mb-2">POEMA QUE UNA VEZ ME ESCRIBISTE:</div>
-      <p class="text-sm text-gray-200 leading-relaxed">Eres como Spreen tieso, frío y hermoso, pero sigues siendo una persona única y detergente
-Aunque a veces
-un poco serio eres muy
-importante para mí, y me haces
-reír como digo Spreen " Andate a la verga". Te quiere mucho Daiana ♡︎</p>
+      <p class="text-sm text-gray-200 leading-relaxed">Eres como Spreen tieso, frío y hermoso,<br>
+pero sigues siendo una persona<br>
+única y detergente<br>
+Aunque a veces<br>
+un poco serio eres muy<br>
+importante para mí, y me haces<br>
+reír como digo Spreen " Andate a la<br>
+ verga". Te quiere mucho Daiana ♡︎</p>
       <div class="h-5" aria-hidden="true"></div>
       <div class="h-5" aria-hidden="true"></div>
       <p class="text-sm text-gray-200 leading-relaxed">Con todo y faltas de ortografía 😜</p>
       </aside>
     </div>
+    </section>
 
-    <!-- Foto 2 + Tu poema 1: verso a la izquierda, imagen a la derecha en md+ -->
+    <section id="2">
     <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
       <!-- Contenedor verso (izquierda en md+) -->
       <aside class="relative -rotate-1 md:rotate-0 md:ml-0 md:w-1/2 bg-purple-950/50 p-5 border border-purple-700/30">
@@ -87,20 +84,21 @@ Ay, qué delicia"</p>
         <div class="text-xs text-gray-400 mt-2">Pulsa reproducir para escuchar la canción.</div>
       </div>
       </aside>
-
       <!-- Contenedor imagen (derecha en md+) -->
       <section class="relative rotate-1 md:rotate-0 md:w-1/2 mr-0 ml-0">
         <div class="w-full py-4 bg-gradient-to-br from-pink-900/40 to-purple-900/40 flex items-center justify-center">
-          <img src="fotos/20250622.jpg" alt="Foto 2 - detalle" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
+          <img src="fotos/20250622.jpg" alt="Foto 2" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
         </div>
       </section>
     </div>
+    </section>
 
+    <section id="3">
     <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
       <!-- Contenedor imagen -->
       <section class="relative -rotate-3 md:rotate-0 md:w-1/2">
       <div class="w-full py-10 bg-gradient-to-br from-purple-900/40 to-black flex items-center justify-center">
-        <img src="fotos/20241207.jpg" alt="Foto 3 - detalle" class="responsive-img max-w-lg h-auto object-contain" loading="lazy">
+        <img src="fotos/20250612-.jpg" alt="Foto 3" class="responsive-img max-w-lg h-[calc(100vh-10rem)] object-contain" loading="lazy">
       </div>
       <div class="absolute top-2 left-2 w-full h-full border border-pink-500/20 -z-10"></div>
     </section>
@@ -135,14 +133,14 @@ Porque el amor es más fuerte"</p>
       </div>
     </aside>
     </div>
+    </section>
 
-      <section class="relative -rotate-2 mx-auto w-10/12">
+    <section id="4">
+    <section class="relative -rotate-2 mx-auto w-10/12">
         <div class="w-full py-4 bg-gradient-to-br from-pink-900/30 to-purple-900/30 flex items-center justify-center">
-          <img src="fotos/20250612.jpg" alt="Foto 4" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
+          <img src="fotos/20250612+.jpg" alt="Foto 4" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
         </div>
-      </section>
-
-      <!-- Contenedor verso -->
+    </section>
       <aside class="relative mt-0 md:mt-0 md:ml-4 md:w-full max-w-7xl bg-black/80 p-6 border-l border-purple-500/50 rotate-1 md:rotate-0">
       <div class="text-xs text-pink-400 mb-2">UN POEMA:</div>
       <p class="text-sm text-gray-200 leading-relaxed poema4c">
@@ -186,16 +184,37 @@ Porque sos distinta y díficil de igualar.
 Mi musa sin calma, sin pretensión,
 Ya llevas en vos la admiración.</p>
     </aside>
+    </section>
 
-    <!-- Foto 5 + Verso 3 (lado a lado: verso a la izquierda, foto a la derecha en md+) -->
+    <section id="5">
+    <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+      <!-- Contenedor imagen -->
+      <section class="relative -rotate-3 md:rotate-0 md:w-1/2">
+      <div class="w-full py-10 bg-gradient-to-br from-purple-900/40 to-black flex items-center justify-center">
+        <img src="fotos/20241130.jpg" alt="Foto 5" style="border-radius: 15px;" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
+      </div>
+      <div class="absolute top-2 left-2 w-full h-full border border-pink-500/20 -z-10"></div>
+    </section>
+    <!-- Verso 2 -->
+    <aside class="relative mt-0 md:mt-0 md:ml-4 md:w-full max-w-7xl bg-black/80 p-6 border-l border-purple-500/50 rotate-1 md:rotate-0">
+      <div class="text-xs text-purple-400 mb-2">PRIMERA CARTA QUE ME DEDICASTE:</div>
+      <p class="text-sm text-gray-200 leading-relaxed">Hola Hugo, quería pedirte perdón por todo lo que he hecho se que me cuesta mucho demostrar cariño hacia otras personas y que tampoco me gusta el contacto físico, me haz hecho sentir una persona muy especial y me haces sentir única, se que ahorita que volvimos no te he hablado es que estoy confundida perdoname enserio, te juro que voy a cambiar por qué no me gusta que estés esperando algo de mi, se que hablas con mi hermana y que le haz platicado de como terminamos no me enoja pero si te llegó a mandar esto no me gustaría que se lo enseñarás a mi hermana<br>
+<br>
+Te amo. 💖<br>
+<br>
+atte: Daianitaa</p>
+    </aside>
+    </div>
+    </section>
+
+    <section id="6">
     <div class="flex flex-col md:flex-row-reverse items-start md:items-center gap-6">
       <!-- Contenedor imagen (derecha en md+) -->
       <section class="relative rotate-1 w-11/12 md:w-1/2">
         <div class="w-full py-6 bg-gradient-to-br from-purple-900/40 to-pink-900/40 flex items-center justify-center">
-          <img src="fotos/20251020.jpg" alt="Foto 5" style="border-radius: 15px;" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
+          <img src="fotos/20251020.jpg" alt="Foto 6" style="border-radius: 15px;" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
         </div>
       </section>
-
       <!-- Contenedor verso (izquierda en md+) -->
       <aside class="relative -rotate-2 mx-auto max-w-md md:w-1/2 bg-purple-950/60 p-6 border border-purple-600/40">
         <div class="text-s text-white-400 mb-2">CANCIÓN QUE TE DEDICO: "OLIMPO"</div>
@@ -214,6 +233,10 @@ Pero no olvides que nos enamoramos porque somos diferente'<br>
 Sigo siendo el mismo que te enamoró<br>
 Pero sin ser dueño<br>
 Del Olimpo en el que estábamo' los do'<br>
+Solo fuiste un sueño<br>
+Sigo siendo el mismo que te enamoró<br>
+Pero sin ser dueño<br>
+Del Olimpo en el que estábamo' los do'<br>
 Solo fuiste un sueño"</p>
       <div class="mt-4">
         <label for="poemaAudio1" class="sr-only">Reproductor de audio: "Cuando se llenó la luna"</label>
@@ -225,53 +248,301 @@ Solo fuiste un sueño"</p>
       </div>
       </aside>
     </div>
+    </section>
 
+    <section id="7">
     <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
       <!-- Contenedor imagen -->
       <section class="relative -rotate-3 md:rotate-0 md:w-1/2">
       <div class="w-full py-10 bg-gradient-to-br from-purple-900/40 to-black flex items-center justify-center">
-        <img src="fotos/20241207.jpg" alt="Foto 3 - detalle" class="responsive-img max-w-lg h-auto object-contain" loading="lazy">
+        <img src="fotos/20251106.jpg" alt="Foto 7" style="border-radius: 90px; rotate: 262deg;" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
       </div>
       <div class="absolute top-2 left-2 w-full h-full border border-pink-500/20 -z-10"></div>
     </section>
-
     <!-- Verso 2 -->
     <aside class="relative -rotate-1 md:rotate-0 md:ml-0 md:w-1/2 bg-purple-950/50 p-5 border border-purple-700/30">
-      <div class="text-s text-white-400 mb-2">CANCIÓN QUE TE DEDICO: ""</div>
-      <p class="text-sm italic text-gray-300 leading-relaxed">""</p>
+      <div class="text-s text-white-400 mb-2">CANCIÓN QUE TE DEDICO: "Morocha"</div>
+      <p class="text-sm italic text-gray-300 leading-relaxed">"Por fuera sos linda<br>
+Pero es que por dentro no hay otra como vos<br>
+Ni pensándola dos veces<br>
+Sos un ser libre y te deseo lo mejor<br>
+Por eso te quiero pa' mí los días, los años, los meses<br>
+Desde hace tiempo y por las noches me hago imágenes mentales<br>
+De lo que sería un amorío perfecto<br>
+No somos tan políticamente correctos<br>
+Hagámonos los mudos y dejemos hablar al tiempo<br>
+Y me gusta esa cara tierna que pones cuando te frusta<br>
+Y es que nunca va a haber nada igual como tus besos en la nuca"</p>
       <div class="mt-4">
         <label for="poemaAudio1" class="sr-only">Reproductor de audio: "Cuando se llenó la luna"</label>
         <audio id="poemaAudio1" controls preload="metadata" class="audio-player w-full rounded-md bg-#230937">
-          <source src="audio/.mp3" type="audio/mpeg">
-          Tu navegador no soporta el reproductor de audio. <a href="audio/.mp3" class="text-pink-400 underline">Descargar audio</a>.
+          <source src="audio/Morocha.mp3" type="audio/mpeg">
+          Tu navegador no soporta el reproductor de audio. <a href="audio/Morocha.mp3" class="text-pink-400 underline">Descargar audio</a>.
         </audio>
         <div class="text-xs text-gray-400 mt-2">Pulsa reproducir para escuchar la canción.</div>
       </div>
     </aside>
     </div>
+    </section>
 
-    <!-- Foto 6 - Centro pequeña -->
+    <section id="8">
     <section class="relative rotate-2 mx-auto w-8/12">
       <div class="w-full py-4 bg-gradient-to-br from-black to-purple-900/40 flex items-center justify-center">
-        <span class="text-gray-500 text-sm">[ FOTO 6 ]</span>
+        <img src="fotos/20241119.jpg" alt="Foto 8" style="border-radius: 15px;" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
       </div>
       <div class="absolute -bottom-2 -left-2 w-full h-full border border-pink-500/30 -z-10"></div>
     </section>
 
     <!-- Tu poema 3 -->
     <aside class="relative mt-0 md:mt-0 md:ml-4 md:w-full max-w-7xl bg-black/80 p-6 border-l border-purple-500/50 rotate-1 md:rotate-0">
-      <div class="text-xs text-purple-400 mb-2">LO ÚLTIMO DE MI PARA ELLA:</div>
-      <p class="text-sm text-gray-200 leading-relaxed poema4c">
-        [ULTIMO POEMA]
-      </p>
+      <div class="text-xs text-purple-400 mb-2">UN POEMA:</div>
+      <p class="text-sm text-gray-200 leading-relaxed poema5c">Al principio,
+Solo una amiga,
+Pero con el tiempo,
+El amor de vida.
+
+Siempre te llevaré,
+En mi corazón,
+Siempre te amaré,
+Con el corazón.
+
+Aún quiero,
+Que nos veamos,
+Aún está ese pero,
+No te gusta a vos.
+
+Me gustaría besarte,
+Con esos labios,
+Tanto hermosos,
+Como exitantes.
+
+Me enamoraste,
+Me ilusionaste,
+Me celaste,
+Me terminaste.
+
+Si mis hijos,
+No tendrán tu apellido,
+Tendrán tu nombre,
+Ese bello nombre.
+
+Quiero volver,
+Así ver,
+Que hice mal,
+Para corregirme,
+Y recordarme.
+
+Gracias a vos,
+Aprendí qué es,
+Estar enamorado,
+Verdaderamente.
+Simplemente,
+Me encantas,
+Me gustas.
+
+Fue un placer,
+Estar con tan,
+Bella mujer.</p>
     </aside>
+    </section>
+  
+    <section id="9">
+    <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+      <!-- Contenedor imagen -->
+      <section class="relative -rotate-3 md:rotate-0 md:w-1/2">
+      <div class="w-full py-10 bg-gradient-to-br from-purple-900/40 to-black flex items-center justify-center">
+        <img src="fotos/20250310.jpg" alt="Foto 9" style="border-radius: 15px;" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
+      </div>
+      <div class="absolute top-2 left-2 w-full h-full border border-pink-500/20 -z-10"></div>
+    </section>
+    <!-- Verso 2 -->
+    <aside class="relative mt-0 md:mt-0 md:ml-4 md:w-full max-w-7xl bg-black/80 p-6 border-l border-purple-500/50 rotate-1 md:rotate-0">
+      <div class="text-xs text-purple-400 mb-2">CARTA DE TU CUMPLE:</div>
+      <p class="text-sm text-gray-200 leading-relaxed">Mi niña,<br>
+<br>
+  Te amo demasiado, feliz cumpleaños, tal vez esta carta la recibas unos cinco u ocho días después de tu cumpleaños, pero quiero agradecerte por dejarme entrar en tu corazón que sé que es de pollito que alguna vez lastimé, pero a pesar de eso sigues amando a este idiota, quiero que sepas que te deseo demasiado, sé que pronto estaremos juntos, quiero estar junto a ti cuando cumplas tus metas, aunque implique aguantarme los celos al escucharte hablar de algunos hombres.<br>
+<br>
+  Aquí te doy un poema:<br>
+<br>
+  Eres muy hermosa,<br>
+  Que quiero besar esos labios,<br>
+  Algo gruesos y rosados,<br>
+  Eres absolutamente mi rosa.<br>
+  <br>
+  Tú eres lo más importante,<br>
+  Aunque es limitado,<br>
+  Lo que yo quiero darte,<br>
+  Es absolutamente todo.<br>
+  <br>
+  Quiero salir contigo,<br>
+  Pero no te gusta salir,<br>
+  Quiero besarme contigo,<br>
+  Pero no de a dónde ir.<br>
+  <br>
+  Por favor Lizeth,<br>
+  Te amo y te quiero ver,<br>
+  Pero no quiero tener,<br>
+  Problemas contigo por eso.<br>
+  <br>
+  Recuerda siempre que te amo mucho muchísimo y te quiero para toda mi vida, te quiero ver mi niña, te quiero besar, ge quiero abrazar y te quiero dar todo mi cariño.<br>
+  <br>
+  Te ama mucho,<br>
+  Tu novio Hugo.</p>
+    </aside>
+    </div>
+    </section>
 
+    <section id="10">
+    <!-- Foto 5 + Verso 3 (lado a lado: verso a la izquierda, foto a la derecha en md+) -->
+    <div class="flex flex-col md:flex-row-reverse items-start md:items-center gap-6">
+      <!-- Contenedor imagen (derecha en md+) -->
+      <section class="relative rotate-1 w-11/12 md:w-1/2">
+        <div class="w-full py-6 bg-gradient-to-br from-purple-900/40 to-pink-900/40 flex items-center justify-center">
+          <img src="fotos/20250209.jpg" alt="Foto 10" style="border-radius: 15px;" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
+        </div>
+      </section>
+      <!-- Contenedor verso (izquierda en md+) -->
+      <aside class="relative -rotate-2 mx-auto max-w-md md:w-1/2 bg-purple-950/60 p-6 border border-purple-600/40">
+        <div class="text-s text-white-400 mb-2">CANCIÓN QUE TE DEDICO: "Tus Vueltas"</div>
+        <p class="text-sm italic text-gray-300 leading-relaxed">"Quiero besarte en la cama, desnuda o con ropa<br>
+Y cantarte poesías de esas que te escribo para vos no más<br>
+Y hacer el amor solo con vos<br>
+Mirada penetrante parece Medusa<br>
+Movimiento de morocha y cara de USA<br>
+No vi ni tu blusa por tu cara hermosa<br>
+Y sé que no es excusa<br>
+Pero es que con vos sentí algo que no había sentido<br>
+En la noche mis sueño son solo contigo<br>
+En mi panza dejaste un lindo cosquilleo<br>
+Y en mi mente un tema que aún no termino<br>
+Solo te sería infiel con la luna<br>
+Pero ni siquiera no tiene tu estilo<br>
+No tiene tu estilo (El M)"</p>
+      <div class="mt-4">
+        <label for="poemaAudio1" class="sr-only">Reproductor de audio: "Cuando se llenó la luna"</label>
+        <audio id="poemaAudio1" controls preload="metadata" class="audio-player w-full rounded-md bg-#230937">
+          <source src="audio/tus-vueltas.mp3" type="audio/mpeg">
+          Tu navegador no soporta el reproductor de audio. <a href="audio/tus-vueltas.mp3" class="text-pink-400 underline">Descargar audio</a>.
+        </audio>
+        <div class="text-xs text-gray-400 mt-2">Pulsa reproducir para escuchar la canción.</div>
+      </div>
+      </aside>
+    </div>
+    </section>
+
+    <section id="11">
+    <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+      <!-- Contenedor imagen -->
+      <section class="relative -rotate-3 md:rotate-0 md:w-1/2">
+      <div class="w-full py-10 bg-gradient-to-br from-purple-900/40 to-black flex items-center justify-center">
+        <img src="fotos/20251030.jpg" alt="Foto 11" style="border-radius: 15px;" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
+      <div class="absolute top-2 left-2 w-full h-full border border-pink-500/20 -z-10"></div>
+    </section>
+    <aside class="relative -rotate-1 md:rotate-0 md:ml-0 md:w-1/2 bg-purple-950/50 p-5 border border-purple-700/30">
+      <div class="text-s text-white-400 mb-2">CANCIÓN QUE TE DEDICO: "El Bolero"</div>
+      <p class="text-sm italic text-gray-300 leading-relaxed">"Sé que dijimos que ya no íbamos a hablarnos<br>
+Pero tengo esta situación que está pasando<br>
+Y poquito a poco me va matando<br>
+Y no encuentro la solución<br>
+Tengo un fantasma que to el día me persigue<br>
+Y que me muestra tu sonrisa donde mire<br>
+No encuentro la manera de ser libre<br>
+¿Bebé, qué fue lo que pasó?<br>
+Ay, sácame esta maldición, por favor<br>
+Esta que hace que no pare, que no pare de pensar en vos<br>
+Y justo cuando, cuando ya me siento un poco mejor<br>
+Justo ahí vuelve a atacarme ese recuerdo de tu sabor<br>
+En las noches yo pienso en qué pasó con nosotros<br>
+No volvimos a hablarnos, ¿qué habrá sido de vos?<br>
+Y quisiera que vuelvas para que ese fantasma<br>
+Me deje tranquilo y empezar otra vez<br>
+Te vi en las paredes y en la cara de varias mujeres<br>
+Si intenté reemplazar tus caricias, pero solo rompí un corazón<br>
+Nunca fuimos iguales, quise bienes y me distes males<br>
+Pero ni navegando los mares habrá alguien que se acerque a vos"</p>
+      <div class="mt-4">
+        <label for="poemaAudio1" class="sr-only">Reproductor de audio: "Cuando se llenó la luna"</label>
+        <audio id="poemaAudio1" controls preload="metadata" class="audio-player w-full rounded-md bg-#230937">
+          <source src="audio/el-bolero.mp3" type="audio/mpeg">
+          Tu navegador no soporta el reproductor de audio. <a href="audio/el-bolero.mp3" class="text-pink-400 underline">Descargar audio</a>.
+        </audio>
+        <div class="text-xs text-gray-400 mt-2">Pulsa reproducir para escuchar la canción.</div>
+      </div>
+    </aside>
+    </div>
+    </section>
+
+    <section id="12">
+    <!-- Foto 6 - Centro pequeña -->
+    <section class="relative rotate-2 mx-auto w-8/12">
+      <div class="w-full py-4 bg-gradient-to-br from-black to-purple-900/40 flex items-center justify-center">
+        <img src="fotos/20250201+.jpg" alt="Foto 12" style="border-radius: 15px;" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
+      </div>
+      <div class="absolute -bottom-2 -left-2 w-full h-full border border-pink-500/30 -z-10"></div>
+    </section>
+    <aside class="relative mt-0 md:mt-0 md:ml-4 md:w-full max-w-7xl bg-black/80 p-6 border-l border-purple-500/50 rotate-1 md:rotate-0">
+      <div class="text-xs text-purple-400 mb-2">LO ÚLTIMO DE MI PARA ELLA:</div>
+      <p class="text-sm text-gray-200 leading-relaxed poema4c">Yo por siempre te amaré,
+Pero ya nunca te esperaré,
+Tal vez jamás te superaré,
+Pero en mi corazón te guardaré.
+
+Me sorprende que seas tan inefable,
+Así como lo eres de adorable,
+De ti ya no quieres que hable,
+Pues eso ya era esperable.
+
+Siempre has sido espectacular,
+Pero de eso ya ni hablar,
+En el tiempo se tiene que quedar,
+Lo que nos tuvimos que ocultar.
+
+Lo que jugamos es inolvidable,
+Aunque antes era inigualable,
+Ahora todo se volvió inalcanzable,
+Pero tu sigues siendo admirable.
+
+Mis sentimientos tengo que transformar,
+Porque ya no te puedo amar,
+Tal vez me cueste olvidar,
+Pero ya no te puedo esperar.
+
+Si es que yo contigo regreso,
+Sería solo un gran retroceso,
+Pero de ti quiero un gran beso,
+Para olvidar todo este exceso.
+
+Aunque tú creías incorrectamente,
+Que de ti dependía emocionalmente,
+Poco a poco, muy lentamente,
+La realción se volvía decepcionante.
+
+Todos me preguntan por nosotros,
+Les digo que ya somos otros,
+Que nuestros caminos ya son otros,
+Y que ya no hay más de nosotros.
+</p>
+    </aside>
+    </section>
+
+    <!--
+      <section id="#">
+        <section class="relative rotate-2 mx-auto w-8/12">
+          <div class="w-full py-4 bg-gradient-to-br from-black to-purple-900/40 flex items-center justify-center">
+            <span class="text-gray-500 text-sm">[ FOTO 7 ]</span>
+          </div>
+          <div class="absolute -bottom-2 -left-2 w-full h-full border border-pink-500/30 -z-10"></div>
+        </section>
+        <aside class="relative mt-0 md:mt-0 md:ml-4 md:w-full max-w-7xl bg-black/80 p-6 border-l border-purple-500/50 rotate-1 md:rotate-0">
+          <div class="text-xs text-purple-400 mb-2">LO ÚLTIMO DE MI PARA ELLA:</div>
+          <p class="text-sm text-gray-200 leading-relaxed poema4c"></p>
+        </aside>
+      </section>
+    -->
   </main>
-
-  <!-- Footer minimalista -->
+  
   <footer class="py-12 text-center">
     <div class="text-xs text-gray-600 tracking-widest">MILO J STYLE</div>
   </footer>
-
 </body>
 </html>
