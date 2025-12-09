@@ -31,6 +31,22 @@ body {
     margin: 0;
 }
 
+.jspm {
+    display: block;
+}
+
+.link {
+    color: white;
+    text-align: left;
+}
+
+.← {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+
+}
+
 /* --------------------------------------------------
    Tipografías / utilidades
    -------------------------------------------------- */
