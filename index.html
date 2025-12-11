@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,37 @@
   <script src="script.js" defer></script>
 </head>
 <body class="text-white overflow-x-hidden">
+  <section class="blocked-screen" id="blockedScreen">
+  <main class="screen-block" id="screenBlock">
+    <div class="lock-card" role="dialog" aria-labelledby="lockTitle" aria-modal="true">
+      <h2 id="lockTitle">Acceso exclusivo para Daiana</h2>
+      <p>Introduce la contraseña para ver la página.</p>
+
+      <form id="passForm" autocomplete="off">
+        <input id="passInput" type="password" placeholder="Contraseña" required
+          style="background-color: #dbdbdb;color:var(--secret);padding:.6rem .8rem;border-radius:8px;border:1px solid #ddd;width:100%;max-width:320px;font-size:1rem;" />
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;align-items:center;justify-content:center;">
+          <button type="submit"
+            style="padding:.5rem .8rem;background:var(--accent);color:var(--text);border:none;border-radius:8px;cursor:pointer;font-weight:600;">
+            Entrar
+          </button>
+          <button type="button" id="clearBtn"
+            style="padding:.5rem .8rem;background:#000;border:none;border-radius:8px;cursor:pointer;">
+            Borrar
+          </button>
+        </div>
+
+        <p id="passError" style="color:#c00;margin-top:.6rem;display:none;">Contraseña incorrecta</p>
+
+        <label style="display: none; margin-top:.6rem; color:var(--muted); font-size:.9rem;">
+          <input id="remember" type="checkbox" /> Recordar en este equipo
+        </label>
+      </form>
+    </div>
+  </main>
+  </section>
+
+  <section class="main-page" id="mainPage">
   <header class="relative h-screen flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-black to-pink-900/20"></div>
     <div class="absolute top-10 left-5 w-20 h-20 bg-purple-600/20 rotate-45"></div>
@@ -28,6 +59,38 @@
   </header>
 
   <main id="main" class="px-4 py-12 space-y-8">
+    <section id="hm" class="hm">
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <nav id="menu" class="menu">
+        <ul>
+          <li><a href="#1">Poema de Ella</a></li>
+          <li><a href="#2">Canción 1</a></li>
+          <li><a href="#3">Canción 2</a></li>
+          <li><a href="#4">Poema 1</a></li>
+          <li><a href="#5">Carta de Ella</a></li>
+          <li><a href="#6">Canción 3</a></li>
+          <li><a href="#7">Canción 4</a></li>
+          <li><a href="#8">Poema 2</a></li>
+          <li><a href="#9">Carta de su Cumple</a></li>
+          <li><a href="#10">Canción 5</a></li>
+          <li><a href="#11">Canción 6</a></li>
+          <li><a href="#12">Último poema</a></li>
+        </ul>
+      </nav>
+
+      <script>
+        function toggleMenu() {
+          const menu = document.getElementById("menu");
+          menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+      </script>
+    </section>
+
     <section id="1">
     <!-- Foto 1 + Verso 1: layout lado a lado (imagen a la izq, verso a la derecha) -->
     <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
@@ -549,9 +612,14 @@ Y que ya no hay más de nosotros.
       </section>
     -->
   </main>
-  
+
   <footer class="py-12 text-center">
     <div class="text-xs text-gray-600 tracking-widest">MILO J STYLE</div>
   </footer>
+  </section>
+
+  <section class="error" id="error">
+    <iframe title="." src="https://programmer-hugo.github.io/ERROR/dai/" id="dispDenegado"></iframe>
+  </section>
 </body>
 </html>
