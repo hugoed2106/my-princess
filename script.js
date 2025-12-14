@@ -1,3 +1,24 @@
+function mostrarPorFecha(id, mesInicio, diaInicio, mesFin, diaFin) {
+  const hoy = new Date();
+  const año = hoy.getFullYear();
+
+  const inicio = new Date(año, mesInicio - 1, diaInicio);
+  const fin = new Date(año, mesFin - 1, diaFin, 23, 59, 59);
+
+  const dic = document.getElementById("mensaje-dic");
+
+  if (hoy >= inicio && hoy <= fin) {
+    dic.classList.remove("hidden");
+
+    // Cerrar al hacer clic fuera del div
+    document.addEventListener("click", function cerrar(e) {
+      if (!dic.contains(e.target)) {
+        dic.classList.add("hidden");
+        document.removeEventListener("click", cerrar);
+      }
+    });
+  }
+}
 (function () {
     const PASSWORD = "DL2312*"; // Cambia aquí la contraseña si lo deseas
     const STORAGE_KEY = "poemas-unlocked-v1";
@@ -10,13 +31,14 @@
     const clearBtn = document.getElementById("clearBtn");
     const main = document.getElementById('mainPage'); // Pagina principal
     const hm = document.getElementById('hm'); // Menu de inicio
+    const dic = document.getElementById("mensaje-dic");
 
     // Si ya está autorizado, ocultar la pantalla de bloqueo
     if (localStorage.getItem(STORAGE_KEY) === "1") {
         screen.classList.add("hidden");
     } else {
         main.classList.add('hidden'); // Ocultar la lista de poemas
-        hm.classList.remove('hidden'); // Mostrar el menu de inicio
+        hm.classList.add('hidden'); // Mostrar el menu de inicio
     }
 
     form.addEventListener("submit", function (e) {
@@ -28,6 +50,7 @@
             err.style.display = "none";
             main.classList.remove('hidden'); // Mostrar la lista de poemas
             hm.classList.remove('hidden'); // Ocultar el menu de inicio
+            mostrarPorFecha("mensaje-dic", 12, 1, 12, 31);
         } else {
             err.style.display = "block";
             input.value = "";
