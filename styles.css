@@ -126,10 +126,14 @@ form {
     top: 60px;
     right: 20px;
     display: none;
-    background: var(--bg-dark);
+    background: rgba(0, 0, 0, 0.6);
+    border: #7f00ff 2px solid;
     padding: 15px;
-    width: 200px;
+    width: 600px;
     border-radius: 10px;
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
 }
 
 .menu ul {
