@@ -7,8 +7,14 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        a {
+        .cursor-pointer {
             cursor: pointer;
+        }
+        .cursor-default {
+            cursor: default;
+        }
+        footer div {
+            font-size: 0.75rem;
         }
     </style>
 </head>
@@ -19,9 +25,9 @@
         <div class="flex flex-col md:flex-row md:items-center md:justify-between border-b border-[#30363d] pb-4 mb-6 gap-4">
             <div class="flex items-center space-x-2 text-xl flex-wrap">
                 <i data-lucide="folder-git-2" class="text-[#58a6ff] w-6 h-6"></i>
-                <a target="_blank" class="text-[#58a6ff] hover:underline font-semibold">hugoed2106</a>
+                <a target="_blank" class="text-[#58a6ff] hover:underline font-semibold cursor-pointer">hugoed2106</a>
                 <span class="text-[#8b949e]">/</span>
-                <a onclick="navigateTo('')" target="_blank" class="text-[#58a6ff] hover:underline font-semibold">my-princess</a>
+                <a onclick="navigateTo('')" target="_blank" class="text-[#58a6ff] hover:underline font-semibold cursor-pointer">my-princess</a>
                 <span id="breadcrumbs" class="flex items-center space-x-2"></span>
             </div>
             <div class="text-xs text-[#8b949e] bg-[#21262d] px-3 py-1 rounded-full border border-[#30363d] self-start md:self-auto">
@@ -37,7 +43,7 @@
         <div id="explorer-box" class="bg-[#161b22] border border-[#30363d] rounded-md overflow-hidden">
             <div class="bg-[#21262d] p-3 flex justify-between items-center border-b border-[#30363d] text-sm">
                 <span class="text-[#8b949e] flex items-center gap-2">
-                    <i data-lucide="git-branch" class="w-4 h-4"></i> Contenido del repositorio
+                    <i data-lucide="git-branch" class="w-4 h-4 cursor-default"></i> Contenido del repositorio
                 </span>
             </div>
             <div id="explorer-list" class="divide-y divide-[#30363d]">
@@ -110,6 +116,9 @@
                 if (!response.ok) throw new Error('No se pudo leer el contenido de esta ruta.');
                 
                 let items = await response.json();
+
+                // >>> NUEVA LÍNEA: Filtrar para ocultar la carpeta o archivo 'files-explorer'
+                items = items.filter(item => item.name !== 'files-explorer');
 
                 // Ordenar: Carpetas primero, luego archivos
                 items.sort((a, b) => b.type.localeCompare(a.type));
@@ -306,4 +315,10 @@
         init();
     </script>
 </body>
+<footer class="text-center text-xs text-[#8b949e] py-4 mt-8 border-t border-[#30363d] w-full">
+    <div class="container mx-auto">
+        <p>Página Web: <a href="https://hugoed2106.github.io/my-princess/" class="text-pink-500 hover:none bold">Her</a></p>
+        <p>2025 - Hugo Elias.</p>
+    </div>
+</footer>
 </html>
