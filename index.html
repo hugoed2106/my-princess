@@ -33,7 +33,7 @@
 
         <p id="passError" style="color:#c00;margin-top:.6rem;display:none;">Contraseña incorrecta</p>
 
-        <label style="display: none; margin-top:.6rem; color:var(--muted); font-size:.9rem;">
+        <label style="display: block; margin-top:.6rem; color:var(--muted); font-size:.9rem;">
           <input id="remember" type="checkbox" /> Recordar en este equipo
         </label>
       </form>
@@ -49,6 +49,14 @@ Verás que al darte la tarjetita donde iba el link de esta página te dije algun
 Nunca te olvidaré,<br>
 Te ama muchísimo,<br>
 Hugs.</p>
+  </aside>
+  <aside id="mensaje-jun" class="msg hidden">
+    <div class="text-xs text-purple-400 mb-2">Mensaje:</div>
+    <p class="text-sm text-gray-200 leading-relaxed">Hola Liz,<br>
+Si sigues visitando esta página, sólo quiero que sepas que eres muy importante para mí y fuiste la primera y única opción. Te amo.<br>
+<br>
+Hugs.</p>
+    <div class="text-xs text-purple-400 mb-2"><span class="text-pink-500"><br>Tiempo Restante: <span id="mensaje-jun-timer" class="text-pink-500"></span></span></div>
   </aside>
   
   <header class="relative h-screen flex items-center justify-center overflow-hidden">
@@ -640,54 +648,6 @@ Y que ya no hay más de nosotros.
     </section>
 
     <section id="14">
-    <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
-      <!-- Contenedor imagen -->
-      <section class="relative -rotate-3 md:rotate-0 md:w-1/2">
-      <div class="w-full py-10 bg-gradient-to-br from-purple-900/40 to-black flex items-center justify-center">
-        <img src="fotos/20241207.jpg" alt="Foto 14" style="border-radius: 15px;" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
-      </div>
-      <div class="absolute top-2 left-2 w-full h-full border border-pink-500/20 -z-10"></div>
-    </section>
-    <aside class="relative -rotate-2 mx-auto max-w-md md:w-1/2 bg-purple-950/60 p-6 border border-purple-600/40">
-        <div class="text-s text-white-400 mb-2">CANCIÓN QUE TE DEDICO: "I'AM"</div>
-        <p class="text-sm italic text-gray-300 leading-relaxed">"No sé cómo vos y la bondad coexisten<br>
-Madrugando recuerdo lo que hiciste<br>
-Ya no sentía lo mismo que antes<br>
-Me alejé porque vos no te fuiste<br>
-Quería estar tranqui, no lo entendiste<br>
-Quisiste quererme y no lo conseguiste<br>
-Ni la luna vino a verme<br>
-Perra, duermo en paz, pero estoy más triste<br>
-No quería cambiar para gustarte<br>
-¿Soluciones? Manipularme<br>
-¿Quién podría seguir? Vos querías la razón<br>
-Yo amarte, qué corazón cobarde<br>
-Me identifiqué con letras antiguas<br>
-Que antes no me hacían tan mal<br>
-'Toy lleno de temas que ahora sí tienen tu nombre<br>
-Menos el que dice "M.A.i"<br>
-I am, I am, don't with me<br>
-I am, I am, no hay más<br>
-I am, I am, don't with me<br>
-(I am, I am, no hay más)<br>
-Tus "te amo" no son falsos<br>
-Pero vienen con fecha de vencimiento<br>
-Mi alma está en un hombre muerto<br>
-Quise entenderte, pero amarte es una lucha, no un alivio<br>
-Fuimos como arena al viento"</p>
-      <div class="mt-4">
-        <label for="poemaAudio1" class="sr-only">Reproductor de audio: "Cuando se llenó la luna"</label>
-        <audio id="poemaAudio1" controls preload="metadata" class="audio-player w-full rounded-md bg-#230937">
-          <source src="audio/i_am.mp3" type="audio/mpeg">
-          Tu navegador no soporta el reproductor de audio. <a href="audio/i_am.mp3" class="text-pink-400 underline">Descargar audio</a>.
-        </audio>
-        <div class="text-xs text-gray-400 mt-2">Pulsa reproducir para escuchar la canción.</div>
-      </div>
-    </aside>
-    </div>
-    </section>
-
-    <section id="15">
     <!-- Foto 15 + Verso 3 (lado a lado: verso a la izquierda, foto a la derecha en md+) -->
     <div class="flex flex-col md:flex-row-reverse items-start md:items-center gap-6">
       <!-- Contenedor imagen (derecha en md+) -->
@@ -749,48 +709,101 @@ Como perro a su amo, te sigo amando"</p>
     </div>
     </section>
 
+    <section id="15">
+    <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+      <!-- Contenedor imagen -->
+      <section class="relative -rotate-3 md:rotate-0 md:w-1/2">
+      <div class="w-full py-10 bg-gradient-to-br from-purple-900/40 to-black flex items-center justify-center">
+        <img src="fotos/20241207.jpg" alt="Foto 14" style="border-radius: 15px;" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
+      </div>
+      <div class="absolute top-2 left-2 w-full h-full border border-pink-500/20 -z-10"></div>
+    </section>
+    <aside class="relative -rotate-2 mx-auto max-w-md md:w-1/2 bg-purple-950/60 p-6 border border-purple-600/40">
+        <div class="text-s text-white-400 mb-2">CANCIÓN QUE TE DEDICO: "I'AM"</div>
+        <p class="text-sm italic text-gray-300 leading-relaxed">"No sé cómo vos y la bondad coexisten<br>
+Madrugando recuerdo lo que hiciste<br>
+Ya no sentía lo mismo que antes<br>
+Me alejé porque vos no te fuiste<br>
+Quería estar tranqui, no lo entendiste<br>
+Quisiste quererme y no lo conseguiste<br>
+Ni la luna vino a verme<br>
+Perra, duermo en paz, pero estoy más triste<br>
+No quería cambiar para gustarte<br>
+¿Soluciones? Manipularme<br>
+¿Quién podría seguir? Vos querías la razón<br>
+Yo amarte, qué corazón cobarde<br>
+Me identifiqué con letras antiguas<br>
+Que antes no me hacían tan mal<br>
+'Toy lleno de temas que ahora sí tienen tu nombre<br>
+Menos el que dice "M.A.i"<br>
+I am, I am, don't with me<br>
+I am, I am, no hay más<br>
+I am, I am, don't with me<br>
+(I am, I am, no hay más)<br>
+Tus "te amo" no son falsos<br>
+Pero vienen con fecha de vencimiento<br>
+Mi alma está en un hombre muerto<br>
+Quise entenderte, pero amarte es una lucha, no un alivio<br>
+Fuimos como arena al viento"</p>
+      <div class="mt-4">
+        <label for="poemaAudio1" class="sr-only">Reproductor de audio: "Cuando se llenó la luna"</label>
+        <audio id="poemaAudio1" controls preload="metadata" class="audio-player w-full rounded-md bg-#230937">
+          <source src="audio/i_am.mp3" type="audio/mpeg">
+          Tu navegador no soporta el reproductor de audio. <a href="audio/i_am.mp3" class="text-pink-400 underline">Descargar audio</a>.
+        </audio>
+        <div class="text-xs text-gray-400 mt-2">Pulsa reproducir para escuchar la canción.</div>
+      </div>
+    </aside>
+    </div>
+    </section>
+
     <section id="16">
-        <section class="relative rotate-2 mx-auto w-8/12">
-          <div class="w-full py-4 bg-gradient-to-br from-black to-purple-900/40 flex items-center justify-center">
-            <iframe
-  width="315"
-  height="560"
-  src="https://www.youtube.com/embed/NdY4_hfwiIs"
-  title="YouTube Shorts player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  allowfullscreen>
-</iframe>
-          </div>
-          <div class="absolute -bottom-2 -left-2 w-full h-full border border-pink-500/30 -z-10"></div>
-        </section>
-        <aside class="relative mt-0 md:mt-0 md:ml-4 md:w-full max-w-7xl bg-black/80 p-6 border-l border-purple-500/50 rotate-1 md:rotate-0">
-          <div class="text-xs text-purple-400 mb-2">Poema: "RE: Sos Peligro"</div>
-          <p class="text-sm text-gray-200 leading-relaxed poema2c">
-            Cuando estoy dispuesto,
-            A olvidar todo lo nuestro,
-            Llegas con carta en manos,
-            Diciendo lo que soñábamos.
-
-            La verdad me sorprendió,
-            Pues tú corazón me olvidó.
-            O se suponía que eso pasó,
-            Vaya que sí me entristeció.
-
-            Por lo que esperé un año,
-            Ahora se siente extraño.
-            Cuando ya quiero olvidarte,
-            Contigo vuelvo a recordarte.
-
-            Si quieres conmigo volver,
-            Cambiar tienes que prometer,
-            Tal vez me puedas convencer,
-            Mi cora en tus manos vas a tener.</p>
-        <p class="link jspm">
-          <a class="←" href="https://hugoed2106.github.io/poemas/dai/#15">←</a>
-        </p>
-        </aside>
+    <div class="flex flex-col md:flex-row-reverse items-start md:items-center gap-6">
+      <!-- Contenedor imagen -->
+      <section class="relative -rotate-3 md:rotate-0 md:w-1/2">
+      <div style="padding: 30px;" class="w-full py-10 bg-gradient-to-br from-purple-900/40 to-black flex items-center justify-center">
+        <iframe
+          id="storyS"
+          width="315"
+          height="560"
+          src="https://www.youtube.com/embed/NdY4_hfwiIs"
+          title="Historia de Sofía | Diciembre 2024"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="absolute top-2 left-2 w-full h-full border border-pink-500/20 -z-10"></div>
       </section>
+      <aside class="relative mt-0 md:mt-0 md:ml-4 md:w-1/2 max-w-7xl bg-black/80 p-6 border-l border-purple-500/50 rotate-1 md:rotate-0">
+        <div class="text-xs text-purple-400 mb-2">Poema: "RE: Sos Peligro</div>
+          <p class="text-sm text-gray-200 leading-relaxed">
+            Cuando estoy dispuesto,<br>
+            A olvidar todo lo nuestro,<br>
+            Llegas con carta en manos,<br>
+            Diciendo lo que soñábamos.<br>
+  <br>
+            La verdad me sorprendió,<br>
+            Pues tú corazón me olvidó.<br>
+            O se suponía que eso pasó,<br>
+            Vaya que sí me entristeció.<br>
+  <br>
+            Por lo que esperé un año,<br>
+            Ahora se siente extraño.<br>
+            Cuando ya quiero olvidarte,<br>
+            Contigo vuelvo a recordarte.<br>
+  <br>
+            Si quieres conmigo volver,<br>
+            Cambiar tienes que prometer,<br>
+            Tal vez me puedas convencer,<br>
+            Mi cora en tus manos vas a tener.
+          </p>
+          <p class="link jspm">
+            <a class="←" href="https://hugoed2106.github.io/poemas/dai/#15">←</a>
+          </p>
+      </aside>
+    </div>
+    </section>
   </main>
 
   <footer class="py-12 text-center">

@@ -1,1 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorador de Archivos > Fotos </title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        a {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-[#0d1117] text-[#c9d1d9] font-sans min-h-screen p-4 md:p-8">
 
+    <div class="max-w-5xl mx-auto">
+        
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between border-b border-[#30363d] pb-4 mb-6 gap-4">
+            <div class="flex items-center space-x-2 text-xl">
+                <i data-lucide="folder-heart" class="text-pink-500 w-6 h-6"></i>
+                <a target="_blank" class="text-[#58a6ff] hover:underline font-semibold">hugoed2106</a>
+                <span class="text-[#8b949e]">/</span>
+                <a href="https://hugoed2106.github.io/my-princess/files-explorer/" target="_blank" class="text-[#58a6ff] hover:underline font-semibold">my-princess</a>
+                <span class="text-[#8b949e]">/</span>
+                <span class="text-[#f0f6fc] font-medium">fotos</span>
+            </div>
+            <div class="text-xs text-[#8b949e] bg-[#21262d] px-3 py-1 rounded-full border border-[#30363d]">
+                Rama: <span class="text-[#f0f6fc] font-mono">main</span>
+            </div>
+        </div>
+
+        <div id="status-message" class="text-center py-12 text-[#8b949e]">
+            <i data-lucide="loader-2" class="animate-spin w-8 h-8 mx-auto mb-2 text-[#58a6ff]"></i>
+            Conectando con el repositorio de GitHub...
+        </div>
+
+        <div id="photos-grid" class="hidden grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            </div>
+
+    </div>
+
+    <div id="image-modal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="relative max-w-3xl w-full max-h-[90vh] flex flex-col items-center">
+            <button onclick="closeModal()" class="absolute -top-10 right-0 md:right--10 text-white hover:text-gray-300 p-2 cursor-pointer">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+            <img id="modal-img" src="" alt="Vista previa" class="max-w-full max-h-[80vh] object-contain rounded border border-[#30363d] shadow-2xl">
+            <p id="modal-title" class="text-[#f0f6fc] mt-4 text-center font-medium truncate max-w-full px-4"></p>
+        </div>
+    </div>
+
+    <script>
+        // Configuración directa de tu repositorio
+        const OWNER = 'hugoed2106';
+        const REPO = 'my-princess';
+        const PATH = 'fotos'; 
+
+        // URL de la API de GitHub para listar contenidos
+        const apiUrl = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`;
+
+        async function loadPhotos() {
+            const grid = document.getElementById('photos-grid');
+            const statusMessage = document.getElementById('status-message');
+
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) throw new Error('No se pudo acceder a la carpeta de fotos. Asegúrate de que el repositorio sea público.');
+                
+                const files = await response.json();
+                
+                // Filtrar solo archivos que tengan extensiones de imagen comunes
+                const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.bmp'];
+                const photos = files.filter(file => 
+                    file.type === 'file' && 
+                    imageExtensions.some(ext => file.name.toLowerCase().endsWith(ext))
+                );
+
+                if (photos.length === 0) {
+                    statusMessage.innerHTML = `<i data-lucide="image-off" class="w-8 h-8 mx-auto mb-2 text-yellow-500"></i> No se encontraron imágenes en la carpeta /fotos.`;
+                    return;
+                }
+
+                // Limpiar mensaje de carga y mostrar la cuadrícula
+                statusMessage.classList.add('hidden');
+                grid.classList.remove('hidden');
+
+                // Renderizar cada foto
+                photos.forEach(photo => {
+                    // Usamos download_url para obtener el archivo crudo directo de GitHub (Raw)
+                    const rawImageUrl = photo.download_url;
+
+                    const card = document.createElement('div');
+                    card.className = "bg-[#161b22] border border-[#30363d] rounded-lg overflow-hidden hover:border-[#58a6ff] transition-all group cursor-pointer flex flex-col justify-between";
+                    card.onclick = () => openModal(rawImageUrl, photo.name);
+
+                    card.innerHTML = `
+                        <div class="aspect-square w-full bg-[#0d1117] flex items-center justify-center overflow-hidden relative border-b border-[#30363d]">
+                            <img src="${rawImageUrl}" alt="${photo.name}" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-200 loading="lazy"">
+                        </div>
+                        <div class="p-3">
+                            <p class="text-xs text-[#c9d1d9] font-medium truncate" title="${photo.name}">${photo.name}</p>
+                            <p class="text-[10px] text-[#8b949e] mt-1">${formatBytes(photo.size)}</p>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+
+                // Inicializar iconos de las alertas si aplica
+                lucide.createIcons();
+
+            } catch (error) {
+                statusMessage.innerHTML = `<i data-lucide="alert-circle" class="w-8 h-8 mx-auto mb-2 text-red-500"></i> <span class="text-red-400">${error.message}</span>`;
+                lucide.createIcons();
+            }
+        }
+
+        // Funciones para el Modal de visualización
+        function openModal(url, title) {
+            document.getElementById('modal-img').src = url;
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('image-modal').classList.remove('hidden');
+            document.getElementById('image-modal').classList.add('flex');
+        }
+
+        function closeModal() {
+            document.getElementById('image-modal').classList.add('hidden');
+            document.getElementById('image-modal').classList.remove('flex');
+            document.getElementById('modal-img').src = ""; // Limpiar para que no parpadee la anterior al abrir otra
+        }
+
+        // Cerrar modal al presionar Esc
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Formateador de peso de archivo
+        function formatBytes(bytes) {
+            if (!bytes || bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+        }
+
+        // Iniciar la carga al abrir la página
+        loadPhotos();
+    </script>
+</body>
+</html>
