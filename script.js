@@ -2,41 +2,147 @@
 const DIC_INICIO = new Date(2024, 11, 23, 0, 0, 0); // 23 de Diciembre de 2024
 const DIC_FIN = new Date(2025, 11, 31, 23, 59, 59); // 31 de Diciembre de 2025
 const JUN_INICIO = new Date(2026, 5, 4, 0, 0, 0); // 4 de Junio de 2026
-const JUN_FIN = new Date(2026, 10, 10, 23, 59, 59); // 10 de Noviembre de 2026
-const NOV_INICIO = new Date(2026, 10, 11, 0, 0, 0); // 11 de Noviembre de 2026
-const NOV_FIN = new Date(2026, 11, 31, 23, 59, 59); // 31 de Diciembre de 2026
+const JUN_FIN = new Date(2026, 11, 31, 23, 59, 59); // 31 de Diciembre de 2026
 
 function dentroDeRango(inicio, fin) {
   const hoy = new Date();
   return hoy >= inicio && hoy <= fin;
 }
 
-// Muestra un mensaje y lo cierra al hacer clic fuera de él
-function abrirMensaje(el) {
+// ---------- Notificaciones desde Firebase ----------
+const firebaseConfig = {
+  apiKey: "AIzaSyBYKVOqh4d9k3KkzYqxEXZWBwCpbXytpmM",
+  authDomain: "my-princess-hg.firebaseapp.com",
+  projectId: "my-princess-hg",
+  storageBucket: "my-princess-hg.firebasestorage.app",
+  messagingSenderId: "444245442541",
+  appId: "1:444245442541:web:9f93023640f59273bd71e4"
+};
+
+const COLECCION_NOTIFICACIONES = "notificaciones";
+
+function agregarLineas(p, texto) {
+  const lineas = texto.split(/\r?\n/);
+  lineas.forEach(function (linea, i) {
+    p.appendChild(document.createTextNode(linea));
+    if (i < lineas.length - 1) p.appendChild(document.createElement("br"));
+  });
+}
+
+// El cierre se añade al final del <p>, después del mensaje
+function renderTexto(p, mensaje, cierre) {
+  p.textContent = "";
+  agregarLineas(p, mensaje.trim());
+  const c = (cierre || "").replace(/\s+$/, "");
+  if (c.trim()) {
+    p.appendChild(document.createElement("br"));
+    agregarLineas(p, c);
+  }
+}
+
+// Crea en el DOM el mensaje de una notificación (título = div, mensaje + cierre = p)
+function crearMensajeDOM(n) {
+  const aside = document.createElement("aside");
+  aside.className = "msg hidden";
+  aside.style.maxWidth = "min(90vw, 640px)";
+
+  const titulo = document.createElement("div");
+  titulo.className = "text-xs text-purple-400 mb-2";
+  titulo.textContent = n.titulo;
+
+  const p = document.createElement("p");
+  p.className = "text-sm text-gray-200 leading-relaxed";
+  renderTexto(p, n.mensaje, n.cierre);
+
+  aside.append(titulo, p);
+  document.getElementById("mainPage").appendChild(aside);
+  return aside;
+}
+
+// Descarga las notificaciones y devuelve solo las vigentes (entre inicio y expiración)
+async function obtenerNotificaciones() {
+  try {
+    const base = "https://www.gstatic.com/firebasejs/10.12.2/";
+    const [appMod, fsMod] = await Promise.all([
+      import(base + "firebase-app.js"),
+      import(base + "firebase-firestore.js")
+    ]);
+
+    const app = appMod.initializeApp(firebaseConfig);
+    const db = fsMod.getFirestore(app);
+    const q = fsMod.query(
+      fsMod.collection(db, COLECCION_NOTIFICACIONES),
+      fsMod.orderBy("inicio", "desc")
+    );
+    const snap = await fsMod.getDocs(q);
+
+    const ahora = new Date();
+    const vigentes = [];
+    snap.forEach(function (d) {
+      const x = d.data();
+      if (!x.inicio || !x.expira) return;
+      const inicio = x.inicio.toDate();
+      const expira = x.expira.toDate();
+      if (ahora >= inicio && ahora <= expira) {
+        vigentes.push({
+          titulo: x.titulo || "",
+          mensaje: x.mensaje || "",
+          cierre: x.cierre || ""
+        });
+      }
+    });
+    return vigentes;
+  } catch (err) {
+    console.warn("No se pudieron cargar las notificaciones:", err);
+    return [];
+  }
+}
+
+// ---------- Cola de mensajes (se muestra uno a la vez) ----------
+let colaMensajes = [];
+let mensajeActual = null;
+let mensajesIniciados = false;
+
+// Muestra el siguiente mensaje de la cola y lo cierra al hacer clic fuera de él
+function mostrarSiguiente() {
+  const el = colaMensajes.shift();
   if (!el) return;
+
+  mensajeActual = el;
   el.classList.remove("hidden");
 
   // Se registra en el siguiente ciclo para que el clic que lo abrió no lo cierre
   setTimeout(function () {
     document.addEventListener("click", function cerrar(e) {
-      if (!el.contains(e.target)) {
-        el.classList.add("hidden");
-        document.removeEventListener("click", cerrar);
-      }
+      if (el.contains(e.target)) return;
+      el.classList.add("hidden");
+      document.removeEventListener("click", cerrar);
+      mensajeActual = null;
+      mostrarSiguiente();
     });
   }, 0);
 }
 
-function mostrarMensajes() {
+async function mostrarMensajes() {
+  if (mensajesIniciados) return;
+  mensajesIniciados = true;
+
+  // 1) Mensajes fijos de la página, si están dentro de su rango de fechas
   if (dentroDeRango(DIC_INICIO, DIC_FIN)) {
-    abrirMensaje(document.getElementById("mensaje-dic1"));
+    colaMensajes.push(document.getElementById("mensaje-dic"));
   }
   if (dentroDeRango(JUN_INICIO, JUN_FIN)) {
-    abrirMensaje(document.getElementById("mensaje-jun1"));
+    colaMensajes.push(document.getElementById("mensaje-jun"));
   }
-  if (dentroDeRango(NOV_INICIO, NOV_FIN)) {
-    abrirMensaje(document.getElementById("mensaje-nov1"));
-  }
+  colaMensajes = colaMensajes.filter(Boolean);
+  if (!mensajeActual) mostrarSiguiente();
+
+  // 2) Notificaciones vigentes guardadas en Firebase
+  const notificaciones = await obtenerNotificaciones();
+  notificaciones.forEach(function (n) {
+    colaMensajes.push(crearMensajeDOM(n));
+  });
+  if (!mensajeActual) mostrarSiguiente();
 }
 
 function mostrarJun() {
