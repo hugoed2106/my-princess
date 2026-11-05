@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin | Notificaciones</title>
+  <link rel="icon" href="../fotos/icon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="admin.js"></script>
+</head>
+<body>
+  <div class="bg-deco" aria-hidden="true"></div>
+
+  <header class="hero">
+    <h1 class="bebas glitch">ADMIN</h1>
+    <div class="subtitle">— NOTIFICACIONES —</div>
+  </header>
+
+  <!-- Inicio de sesión -->
+  <section id="loginView" class="view">
+    <div class="card lock-card" role="dialog" aria-labelledby="loginTitle">
+      <h2 id="loginTitle">Acceso de administrador</h2>
+      <p class="muted">Inicia sesión para gestionar las notificaciones.</p>
+
+      <form id="loginForm" autocomplete="off">
+        <label for="loginEmail" class="sr-only">Correo</label>
+        <input id="loginEmail" type="email" placeholder="Correo" required>
+        <label for="loginPass" class="sr-only">Contraseña</label>
+        <input id="loginPass" type="password" placeholder="Contraseña" required>
+        <button type="submit" class="btn btn-accent" id="loginBtn">Entrar</button>
+        <p id="loginError" class="error-text" hidden></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Panel -->
+  <section id="panelView" class="view" hidden>
+    <div class="topbar">
+      <span class="muted">Sesión: <span id="userEmail"></span></span>
+      <button type="button" id="logoutBtn" class="btn btn-dark">Salir</button>
+    </div>
+
+    <div class="grid">
+      <!-- Formulario -->
+      <div class="card">
+        <div class="label-xs" id="formTitle">NUEVA NOTIFICACIÓN:</div>
+
+        <form id="notifForm" autocomplete="off">
+          <label for="titulo">Título</label>
+          <input id="titulo" type="text" maxlength="120" placeholder="Ej.: CARTA ESPECIAL:" required>
+
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" rows="8" placeholder="Hola Daianita,&#10;..." required></textarea>
+
+          <label for="cierre">Cierre</label>
+          <textarea id="cierre" rows="3" placeholder="Nunca te olvidaré,&#10;Te ama muchísimo,&#10;Hugs."></textarea>
+
+          <div class="row">
+            <div>
+              <label for="inicio">Inicio</label>
+              <input id="inicio" type="datetime-local" required>
+            </div>
+            <div>
+              <label for="expira">Expiración</label>
+              <input id="expira" type="datetime-local" required>
+            </div>
+          </div>
+
+          <p id="formError" class="error-text" hidden></p>
+          <p id="formOk" class="ok-text" hidden></p>
+
+          <div class="actions">
+            <button type="submit" class="btn btn-accent" id="saveBtn">Publicar</button>
+            <button type="button" class="btn btn-dark" id="cancelBtn" hidden>Cancelar edición</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Vista previa -->
+      <div>
+        <div class="label-xs preview-label">VISTA PREVIA:</div>
+        <aside class="msg-preview">
+          <div class="label-xs" id="prevTitulo">Título</div>
+          <p class="msg-text" id="prevMensaje">Mensaje</p>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Lista -->
+    <div class="card list-card">
+      <div class="label-xs">NOTIFICACIONES GUARDADAS:</div>
+      <p id="listaVacia" class="muted" hidden>Todavía no hay notificaciones.</p>
+      <ul id="lista" class="lista"></ul>
+    </div>
+  </section>
+
+  <footer class="footer">MILO J STYLE</footer>
+</body>
+</html>
