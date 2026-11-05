@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es" lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ella...</title>
-  <link rel="icon" href="fotos/icon.png" type="image/x-icon">
+  <link rel="icon" href="fotos/icon.png" type="image/png">
   <meta name="description" content="Página dedicada a Ella, con poemas, fotos y recuerdos especiales."/>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css">
@@ -12,7 +12,7 @@
 </head>
 <body class="text-white overflow-x-hidden">
   <section class="blocked-screen" id="blockedScreen">
-  <main class="screen-block" id="screenBlock">
+  <div class="screen-block" id="screenBlock">
     <div class="lock-card" role="dialog" aria-labelledby="lockTitle" aria-modal="true">
       <h2 id="lockTitle">Acceso exclusivo para Daiana</h2>
       <p>Introduce la contraseña para ver la página.</p>
@@ -38,25 +38,33 @@
         </label>
       </form>
     </div>
-  </main>
+  </div>
   </section>
 
   <section class="main-page" id="mainPage">
-  <aside id="mensaje-dic" class="msg hidden">
+  <aside id="mensaje-dic1" class="msg hidden">
     <div class="text-xs text-purple-400 mb-2">CARTA ESPECIAL:</div>
     <p class="text-sm text-gray-200 leading-relaxed">Hola Daianita,<br>
-Verás que al darte la tarjetita donde iba el link de esta página te dije algunas palabras, pero no te dije lo que en realidad quería decirte. Lo que quería decirte era que te amé, te amo y te amaré por siempre, eres quien me hizo sentir especial en su momento y la verdad con lo que me dijiste al terminar quería decirte que no dependía emocionalmente de ti, no esperaba que me dieras amor ni nada por el estilo, ya que sabía que tú no eres de dar amor. Además también quería decirte que mi primer beso quería que fuera contigo... Y lo sigo queriendo, pero ya es hora de olvidarme de ti y de seguir adelante. En fin, solo quiero un beso tuyo para que sea el primero, así como has sido mi primer novia, mi primer amor, la primera a la que le pedí ser mi novia, la primera a la que le dí mi amor sincero y la primera por la que lloré y arrastré.<br>
+Verás que al darte la tarjetita donde iba el link de esta página te dije algunas palabras, pero no te dije lo que en realidad quería decirte. Lo que quería decirte era que te amé, te amo y te amaré por siempre, eres quien me hizo sentir especial en su momento y la verdad con lo que me dijiste al terminar quería decirte que no dependía emocionalmente de ti, no esperaba que me dieras amor ni nada por el estilo, ya que sabía que tú no eres de dar amor. Además también quería decirte que mi primer beso quería que fuera contigo... Y lo sigo queriendo, pero ya es hora de olvidarme de ti y de seguir adelante. En fin, solo quiero un beso tuyo para que sea el primero, así como has sido mi primera novia, mi primer amor, la primera a la que le pedí ser mi novia, la primera a la que le di mi amor sincero y la primera por la que lloré y arrastré.<br>
 Nunca te olvidaré,<br>
 Te ama muchísimo,<br>
 Hugs.</p>
   </aside>
-  <aside id="mensaje-jun" class="msg hidden">
+  <aside id="mensaje-jun1" class="msg hidden">
     <div class="text-xs text-purple-400 mb-2">Mensaje:</div>
     <p class="text-sm text-gray-200 leading-relaxed">Hola Liz,<br>
-Si sigues visitando esta página, sólo quiero que sepas que eres muy importante para mí y fuiste la primera y única opción. Te amo.<br>
+Si sigues visitando esta página, solo quiero que sepas que eres muy importante para mí y fuiste la primera y única opción. Te amo.<br>
 <br>
 Hugs.</p>
-    <div class="text-xs text-purple-400 mb-2"><span class="text-pink-500"><br>Tiempo Restante: <span id="mensaje-jun-timer" class="text-pink-500"></span></span></div>
+    <div class="text-xs text-purple-400 mb-2"><span class="text-pink-500"><br>Vence en: <span id="mensaje-jun-timer" class="text-pink-500"></span></span></div>
+  </aside>
+  <aside id="mensaje-nov1" class="msg hidden">
+    <div class="text-xs text-purple-400 mb-2">Mensaje:</div>
+    <p class="text-sm text-gray-200 leading-relaxed">Hola Liz,<br>
+Si sigues visitando esta página, quiero que seas mi primer beso, si me dejas, mandame un sticker x a WhatsApp o Insta. Bueno, solo quiero que sepas que eres muy importante para mí y fuiste la primera y única opción. Te amo.<br>
+<br>
+Hugs.</p>
+    <div class="text-xs text-purple-400 mb-2"><span class="text-pink-500"><br>Vence en: <span id="mensaje-nov-timer" class="text-pink-500"></span></span></div>
   </aside>
   
   <header class="relative h-screen flex items-center justify-center overflow-hidden">
@@ -119,7 +127,7 @@ Hugs.</p>
       <section class="relative -rotate-2 md:rotate-0 md:w-1/2 ml-2">
         <!-- Usamos padding en lugar de altura fija para que el contenedor se adapte a la imagen -->
         <div class="w-full py-6 bg-gradient-to-br from-purple-900/40 to-pink-900/40 flex items-center justify-center">
-          <img src="fotos/20241101.jpg" alt="Foto 2" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
+          <img src="fotos/20241101.jpg" alt="Foto 1" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
         </div>
         <div class="absolute -bottom-3 -right-3 w-full h-full border border-purple-500/30 -z-10"></div>
       </section>
@@ -145,7 +153,7 @@ reír como digo Spreen " Andate a la<br>
     <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
       <!-- Contenedor verso (izquierda en md+) -->
       <aside class="relative -rotate-1 md:rotate-0 md:ml-0 md:w-1/2 bg-purple-950/50 p-5 border border-purple-700/30">
-        <div class="text-s text-white-400 mb-2">CANCIÓN QUE TE DEDICO: "Carencias de Cordura"</div>
+        <div class="text-white mb-2">CANCIÓN QUE TE DEDICO: "Carencias de Cordura"</div>
         <p class="text-sm italic text-gray-300 leading-relaxed">"Con vo' entendí que nadie es perfecto<br>
 Por tus carencia' de cordura<br>
 Pero es que son tus mismos defectos<br>
@@ -159,8 +167,8 @@ De repente, el sol ya no brilla tan fuerte<br>
 Como esos dos ojitos que me hipnotizan<br>
 Ay, qué delicia"</p>
         <div class="mt-4">
-        <label for="poemaAudio1" class="sr-only">Reproductor de audio: "Cuando se llenó la luna"</label>
-        <audio id="poemaAudio1" controls preload="metadata" class="audio-player w-full rounded-md  bg-#230937">
+        <label for="poemaAudio1" class="sr-only">Reproductor de audio: "Carencias de Cordura"</label>
+        <audio id="poemaAudio1" controls preload="metadata" class="audio-player w-full rounded-md">
           <source src="audio/Carencias-de-Cordura.mp3" type="audio/mpeg">
           Tu navegador no soporta el reproductor de audio.
           <a href="audio/Carencias-de-Cordura.mp3" class="text-pink-400 underline">Descargar audio</a>.
@@ -189,7 +197,7 @@ Ay, qué delicia"</p>
 
     <!-- Verso 2 -->
     <aside class="relative -rotate-1 md:rotate-0 md:ml-0 md:w-1/2 bg-purple-950/50 p-5 border border-purple-700/30">
-      <div class="text-s text-white-400 mb-2">CANCIÓN QUE TE DEDICO: "A VOS"</div>
+      <div class="text-white mb-2">CANCIÓN QUE TE DEDICO: "A VOS"</div>
       <p class="text-sm italic text-gray-300 leading-relaxed">"No sé si es amor<br>
 Río mirando el phone<br>
 Nena, te envidia el sol<br>
@@ -208,8 +216,8 @@ Porque estar con vos es un sueño<br>
 Ya no me importa extrañar tu calor por las noches<br>
 Porque el amor es más fuerte"</p>
       <div class="mt-4">
-        <label for="poemaAudio1" class="sr-only">Reproductor de audio: "Cuando se llenó la luna"</label>
-        <audio id="poemaAudio1" controls preload="metadata" class="audio-player w-full rounded-md bg-#230937">
+        <label for="poemaAudio2" class="sr-only">Reproductor de audio: "A VOS"</label>
+        <audio id="poemaAudio2" controls preload="metadata" class="audio-player w-full rounded-md">
           <source src="audio/a-vos.mp3" type="audio/mpeg">
           Tu navegador no soporta el reproductor de audio. <a href="audio/a-vos.mp3" class="text-pink-400 underline">Descargar audio</a>.
         </audio>
@@ -239,7 +247,7 @@ Que no pueden contra nosotros,
 Quiero saber todos tus números.
 
 Contar cada lunar, pestaña,
-Mi cuerpo si que te extraña.
+Mi cuerpo sí que te extraña.
 Este año visualizar tus ojos,
 Son impresionantemente preciosos.
 
@@ -255,7 +263,7 @@ Y todos quisieran contigo estar.
 
 En cada mirada que lográs dejar,
 Hay ternura y un toque sin igual.
-La cámara debería reír cuando tu estás,
+La cámara debería reír cuando tú estás,
 Y el tiempo rendirse, no quisiera pasar.
 
 Sos como un verso que quiere volar,
@@ -304,7 +312,7 @@ atte: Daianitaa</p>
       </section>
       <!-- Contenedor verso (izquierda en md+) -->
       <aside class="relative -rotate-2 mx-auto max-w-md md:w-1/2 bg-purple-950/60 p-6 border border-purple-600/40">
-        <div class="text-s text-white-400 mb-2">CANCIÓN QUE TE DEDICO: "OLIMPO"</div>
+        <div class="text-white mb-2">CANCIÓN QUE TE DEDICO: "OLIMPO"</div>
         <p class="text-sm italic text-gray-300 leading-relaxed">"Sé que te hablo en un momento un poco extraño<br>
 Pero aún te veo en ese lado amargo de mi mente<br>
 Creí quererme y solo siento que te extraño<br>
@@ -326,8 +334,8 @@ Pero sin ser dueño<br>
 Del Olimpo en el que estábamo' los do'<br>
 Solo fuiste un sueño"</p>
       <div class="mt-4">
-        <label for="poemaAudio1" class="sr-only">Reproductor de audio: "Cuando se llenó la luna"</label>
-        <audio id="poemaAudio1" controls preload="metadata" class="audio-player w-full rounded-md bg-#230937">
+        <label for="poemaAudio3" class="sr-only">Reproductor de audio: "OLIMPO"</label>
+        <audio id="poemaAudio3" controls preload="metadata" class="audio-player w-full rounded-md">
           <source src="audio/olimpo.mp3" type="audio/mpeg">
           Tu navegador no soporta el reproductor de audio. <a href="audio/olimpo.mp3" class="text-pink-400 underline">Descargar audio</a>.
         </audio>
@@ -348,7 +356,7 @@ Solo fuiste un sueño"</p>
     </section>
     <!-- Verso 2 -->
     <aside class="relative -rotate-1 md:rotate-0 md:ml-0 md:w-1/2 bg-purple-950/50 p-5 border border-purple-700/30">
-      <div class="text-s text-white-400 mb-2">CANCIÓN QUE TE DEDICO: "Morocha"</div>
+      <div class="text-white mb-2">CANCIÓN QUE TE DEDICO: "Morocha"</div>
       <p class="text-sm italic text-gray-300 leading-relaxed">"Por fuera sos linda<br>
 Pero es que por dentro no hay otra como vos<br>
 Ni pensándola dos veces<br>
@@ -361,8 +369,8 @@ Hagámonos los mudos y dejemos hablar al tiempo<br>
 Y me gusta esa cara tierna que pones cuando te frusta<br>
 Y es que nunca va a haber nada igual como tus besos en la nuca"</p>
       <div class="mt-4">
-        <label for="poemaAudio1" class="sr-only">Reproductor de audio: "Cuando se llenó la luna"</label>
-        <audio id="poemaAudio1" controls preload="metadata" class="audio-player w-full rounded-md bg-#230937">
+        <label for="poemaAudio4" class="sr-only">Reproductor de audio: "Morocha"</label>
+        <audio id="poemaAudio4" controls preload="metadata" class="audio-player w-full rounded-md">
           <source src="audio/Morocha.mp3" type="audio/mpeg">
           Tu navegador no soporta el reproductor de audio. <a href="audio/Morocha.mp3" class="text-pink-400 underline">Descargar audio</a>.
         </audio>
@@ -401,7 +409,7 @@ No te gusta a vos.
 Me gustaría besarte,
 Con esos labios,
 Tanto hermosos,
-Como exitantes.
+Como excitantes.
 
 Me enamoraste,
 Me ilusionaste,
@@ -467,14 +475,14 @@ Bella mujer.</p>
   Quiero salir contigo,<br>
   Pero no te gusta salir,<br>
   Quiero besarme contigo,<br>
-  Pero no de a dónde ir.<br>
+  Pero no sé a dónde ir.<br>
   <br>
-  Por favor Lizeth,<br>
+  Por favor, Lizeth,<br>
   Te amo y te quiero ver,<br>
   Pero no quiero tener,<br>
   Problemas contigo por eso.<br>
   <br>
-  Recuerda siempre que te amo mucho muchísimo y te quiero para toda mi vida, te quiero ver mi niña, te quiero besar, ge quiero abrazar y te quiero dar todo mi cariño.<br>
+  Recuerda siempre que te amo mucho muchísimo y te quiero para toda mi vida, te quiero ver mi niña, te quiero besar, te quiero abrazar y te quiero dar todo mi cariño.<br>
   <br>
   Te ama mucho,<br>
   Tu novio Hugo.</p>
@@ -493,7 +501,7 @@ Bella mujer.</p>
       </section>
       <!-- Contenedor verso (izquierda en md+) -->
       <aside class="relative -rotate-2 mx-auto max-w-md md:w-1/2 bg-purple-950/60 p-6 border border-purple-600/40">
-        <div class="text-s text-white-400 mb-2">CANCIÓN QUE TE DEDICO: "Tus Vueltas"</div>
+        <div class="text-white mb-2">CANCIÓN QUE TE DEDICO: "Tus Vueltas"</div>
         <p class="text-sm italic text-gray-300 leading-relaxed">"Quiero besarte en la cama, desnuda o con ropa<br>
 Y cantarte poesías de esas que te escribo para vos no más<br>
 Y hacer el amor solo con vos<br>
@@ -509,8 +517,8 @@ Solo te sería infiel con la luna<br>
 Pero ni siquiera no tiene tu estilo<br>
 No tiene tu estilo (El M)"</p>
       <div class="mt-4">
-        <label for="poemaAudio1" class="sr-only">Reproductor de audio: "Cuando se llenó la luna"</label>
-        <audio id="poemaAudio1" controls preload="metadata" class="audio-player w-full rounded-md bg-#230937">
+        <label for="poemaAudio5" class="sr-only">Reproductor de audio: "Tus Vueltas"</label>
+        <audio id="poemaAudio5" controls preload="metadata" class="audio-player w-full rounded-md">
           <source src="audio/tus-vueltas.mp3" type="audio/mpeg">
           Tu navegador no soporta el reproductor de audio. <a href="audio/tus-vueltas.mp3" class="text-pink-400 underline">Descargar audio</a>.
         </audio>
@@ -526,10 +534,11 @@ No tiene tu estilo (El M)"</p>
       <section class="relative -rotate-3 md:rotate-0 md:w-1/2">
       <div class="w-full py-10 bg-gradient-to-br from-purple-900/40 to-black flex items-center justify-center">
         <img src="fotos/20251030.jpg" alt="Foto 11" style="border-radius: 15px;" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
+      </div>
       <div class="absolute top-2 left-2 w-full h-full border border-pink-500/20 -z-10"></div>
     </section>
     <aside class="relative -rotate-1 md:rotate-0 md:ml-0 md:w-1/2 bg-purple-950/50 p-5 border border-purple-700/30">
-      <div class="text-s text-white-400 mb-2">CANCIÓN QUE TE DEDICO: "El Bolero"</div>
+      <div class="text-white mb-2">CANCIÓN QUE TE DEDICO: "El Bolero"</div>
       <p class="text-sm italic text-gray-300 leading-relaxed">"Sé que dijimos que ya no íbamos a hablarnos<br>
 Pero tengo esta situación que está pasando<br>
 Y poquito a poco me va matando<br>
@@ -551,8 +560,8 @@ Si intenté reemplazar tus caricias, pero solo rompí un corazón<br>
 Nunca fuimos iguales, quise bienes y me distes males<br>
 Pero ni navegando los mares habrá alguien que se acerque a vos"</p>
       <div class="mt-4">
-        <label for="poemaAudio1" class="sr-only">Reproductor de audio: "Cuando se llenó la luna"</label>
-        <audio id="poemaAudio1" controls preload="metadata" class="audio-player w-full rounded-md bg-#230937">
+        <label for="poemaAudio6" class="sr-only">Reproductor de audio: "El Bolero"</label>
+        <audio id="poemaAudio6" controls preload="metadata" class="audio-player w-full rounded-md">
           <source src="audio/el-bolero.mp3" type="audio/mpeg">
           Tu navegador no soporta el reproductor de audio. <a href="audio/el-bolero.mp3" class="text-pink-400 underline">Descargar audio</a>.
         </audio>
@@ -571,7 +580,7 @@ Pero ni navegando los mares habrá alguien que se acerque a vos"</p>
       <div class="absolute -bottom-2 -left-2 w-full h-full border border-pink-500/30 -z-10"></div>
     </section>
     <aside class="relative mt-0 md:mt-0 md:ml-4 md:w-full max-w-7xl bg-black/80 p-6 border-l border-purple-500/50 rotate-1 md:rotate-0">
-      <div class="text-xs text-purple-400 mb-2">LO ÚLTIMO DE MI PARA ELLA:</div>
+      <div class="text-xs text-purple-400 mb-2">LO ÚLTIMO DE MÍ PARA ELLA:</div>
       <p class="text-sm text-gray-200 leading-relaxed poema4c">Yo por siempre te amaré,
 Pero ya nunca te esperaré,
 Tal vez jamás te superaré,
@@ -590,7 +599,7 @@ Lo que nos tuvimos que ocultar.
 Lo que jugamos es inolvidable,
 Aunque antes era inigualable,
 Ahora todo se volvió inalcanzable,
-Pero tu sigues siendo admirable.
+Pero tú sigues siendo admirable.
 
 Mis sentimientos tengo que transformar,
 Porque ya no te puedo amar,
@@ -605,7 +614,7 @@ Para olvidar todo este exceso.
 Aunque tú creías incorrectamente,
 Que de ti dependía emocionalmente,
 Poco a poco, muy lentamente,
-La realción se volvía decepcionante.
+La relación se volvía decepcionante.
 
 Todos me preguntan por nosotros,
 Les digo que ya somos otros,
@@ -633,8 +642,8 @@ Y que ya no hay más de nosotros.
       <p class="text-sm text-gray-200 leading-relaxed"> Daiana,<br>
 <br>
     La verdad no sé por qué estoy escribiéndote la respuesta a tu carta, pero la verdad yo también te extraño, sigo soñando contigo y también quisiera ser importante hoy, mañana y siempre. <br>
-    Es que tú eres el amor de mi vida, quien me ha hecho la persona más feliz y más triste a la vez, es que tú tienes algo que me atrae más que no es tu físico ni tú personalidad, es tu autenticidad, porque eres única e inigualable, quiero que seamos los mismos de antes...<br>
-    Pero ya no sé qué hacer, porque me cansé de estar contigo esperando confianza, y no pido que me des amor, cartas, poemas, no, nada de eso, solo quiero que seas tú, no quiero nada más, porque así como eras me enamoraste y siento que conmigo no eres, filtras tú personalidad y cuando quise salir contigo me persuadiste, como si fuera un completo extraño...<br>
+    Es que tú eres el amor de mi vida, quien me ha hecho la persona más feliz y más triste a la vez, es que tú tienes algo que me atrae más que no es tu físico ni tu personalidad, es tu autenticidad, porque eres única e inigualable, quiero que seamos los mismos de antes...<br>
+    Pero ya no sé qué hacer, porque me cansé de estar contigo esperando confianza, y no pido que me des amor, cartas, poemas, no, nada de eso, solo quiero que seas tú, no quiero nada más, porque así como eras me enamoraste y siento que conmigo no eres, filtras tu personalidad y cuando quise salir contigo me persuadiste, como si fuera un completo extraño...<br>
     Ya no quiero regresar a eso y solo quiero que sepas que siempre te amaré y abarcas una gran parte de mi corazón, pero quiero que no vuelvas a mí y te quedes en el 2025 como un recuerdo bonito, triste, amoroso y nostálgico.<br>
 <br>
     Por tu amor,<br>
@@ -653,12 +662,12 @@ Y que ya no hay más de nosotros.
       <!-- Contenedor imagen (derecha en md+) -->
       <section class="relative rotate-1 w-11/12 md:w-1/2">
         <div class="w-full py-6 bg-gradient-to-br from-purple-900/40 to-pink-900/40 flex items-center justify-center">
-          <img src="fotos/20250201-.jpg" alt="Foto 15" style="border-radius: 15px;" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
+          <img src="fotos/20250201-.jpg" alt="Foto 14" style="border-radius: 15px;" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
         </div>
       </section>
       <!-- Contenedor verso (izquierda en md+) -->
       <aside class="relative -rotate-1 md:rotate-0 md:ml-0 md:w-1/2 bg-purple-950/50 p-5 border border-purple-700/30">
-      <div class="text-s text-white-400 mb-2">CANCIÓN QUE TE DEDICO: "Rara Vez"</div>
+      <div class="text-white mb-2">CANCIÓN QUE TE DEDICO: "Rara Vez"</div>
       <p class="text-sm italic text-gray-300 leading-relaxed">"Negra, rara vez te vi bien 'tando con aquel<br>
 No lo sé, no me vo'a meter<br>
 Pero te noté algo mentirosa<br>
@@ -698,8 +707,8 @@ Mejor si es al lado de mí<br>
 Love incondicional<br>
 Como perro a su amo, te sigo amando"</p>
       <div class="mt-4">
-        <label for="poemaAudio1" class="sr-only">Reproductor de audio: "Cuando se llenó la luna"</label>
-        <audio id="poemaAudio1" controls preload="metadata" class="audio-player w-full rounded-md bg-#230937">
+        <label for="poemaAudio7" class="sr-only">Reproductor de audio: "Rara Vez"</label>
+        <audio id="poemaAudio7" controls preload="metadata" class="audio-player w-full rounded-md">
           <source src="audio/rara-vez.mp3" type="audio/mpeg">
           Tu navegador no soporta el reproductor de audio. <a href="audio/rara-vez.mp3" class="text-pink-400 underline">Descargar audio</a>.
         </audio>
@@ -714,12 +723,12 @@ Como perro a su amo, te sigo amando"</p>
       <!-- Contenedor imagen -->
       <section class="relative -rotate-3 md:rotate-0 md:w-1/2">
       <div class="w-full py-10 bg-gradient-to-br from-purple-900/40 to-black flex items-center justify-center">
-        <img src="fotos/20241207.jpg" alt="Foto 14" style="border-radius: 15px;" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
+        <img src="fotos/20241207.jpg" alt="Foto 15" style="border-radius: 15px;" class="responsive-img max-w-md h-auto object-contain" loading="lazy">
       </div>
       <div class="absolute top-2 left-2 w-full h-full border border-pink-500/20 -z-10"></div>
     </section>
     <aside class="relative -rotate-2 mx-auto max-w-md md:w-1/2 bg-purple-950/60 p-6 border border-purple-600/40">
-        <div class="text-s text-white-400 mb-2">CANCIÓN QUE TE DEDICO: "I'AM"</div>
+        <div class="text-white mb-2">CANCIÓN QUE TE DEDICO: "I'AM"</div>
         <p class="text-sm italic text-gray-300 leading-relaxed">"No sé cómo vos y la bondad coexisten<br>
 Madrugando recuerdo lo que hiciste<br>
 Ya no sentía lo mismo que antes<br>
@@ -746,8 +755,8 @@ Mi alma está en un hombre muerto<br>
 Quise entenderte, pero amarte es una lucha, no un alivio<br>
 Fuimos como arena al viento"</p>
       <div class="mt-4">
-        <label for="poemaAudio1" class="sr-only">Reproductor de audio: "Cuando se llenó la luna"</label>
-        <audio id="poemaAudio1" controls preload="metadata" class="audio-player w-full rounded-md bg-#230937">
+        <label for="poemaAudio8" class="sr-only">Reproductor de audio: "I'AM"</label>
+        <audio id="poemaAudio8" controls preload="metadata" class="audio-player w-full rounded-md">
           <source src="audio/i_am.mp3" type="audio/mpeg">
           Tu navegador no soporta el reproductor de audio. <a href="audio/i_am.mp3" class="text-pink-400 underline">Descargar audio</a>.
         </audio>
@@ -768,7 +777,7 @@ Fuimos como arena al viento"</p>
           height="560"
           src="https://www.youtube.com/embed/NdY4_hfwiIs"
           title="Historia de Sofía | Diciembre 2024"
-          frameborder="0"
+          style="border:0;"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen>
         </iframe>
@@ -776,7 +785,7 @@ Fuimos como arena al viento"</p>
       <div class="absolute top-2 left-2 w-full h-full border border-pink-500/20 -z-10"></div>
       </section>
       <aside class="relative mt-0 md:mt-0 md:ml-4 md:w-1/2 max-w-7xl bg-black/80 p-6 border-l border-purple-500/50 rotate-1 md:rotate-0">
-        <div class="text-xs text-purple-400 mb-2">Poema: "RE: Sos Peligro</div>
+        <div class="text-xs text-purple-400 mb-2">Poema: "RE: Sos Peligro"</div>
           <p class="text-sm text-gray-200 leading-relaxed">
             Cuando estoy dispuesto,<br>
             A olvidar todo lo nuestro,<br>
@@ -784,7 +793,7 @@ Fuimos como arena al viento"</p>
             Diciendo lo que soñábamos.<br>
   <br>
             La verdad me sorprendió,<br>
-            Pues tú corazón me olvidó.<br>
+            Pues tu corazón me olvidó.<br>
             O se suponía que eso pasó,<br>
             Vaya que sí me entristeció.<br>
   <br>

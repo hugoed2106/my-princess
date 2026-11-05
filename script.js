@@ -1,66 +1,62 @@
-function mostrarDic() {
-  const year = new Date().getFullYear();
-  const month = new Date().getMonth();
-  const day = new Date().getDate();
-  const hoy = new Date(year, month, day);
-  const inicio = new Date(2024, 11, 23, 0, 0, 0); // 23 de Diciembre de 2024
-  const fin = new Date(2025, 11, 31, 23, 59, 59); // 31 de Diciembre de 2025
+// Rangos de fechas en los que se muestran los mensajes especiales
+const DIC_INICIO = new Date(2024, 11, 23, 0, 0, 0); // 23 de Diciembre de 2024
+const DIC_FIN = new Date(2025, 11, 31, 23, 59, 59); // 31 de Diciembre de 2025
+const JUN_INICIO = new Date(2026, 5, 4, 0, 0, 0); // 4 de Junio de 2026
+const JUN_FIN = new Date(2026, 10, 10, 23, 59, 59); // 10 de Noviembre de 2026
+const NOV_INICIO = new Date(2026, 10, 11, 0, 0, 0); // 11 de Noviembre de 2026
+const NOV_FIN = new Date(2026, 11, 31, 23, 59, 59); // 31 de Diciembre de 2026
 
-  // Actualizar el temporizador cada segundo
-  const updateTimer = () => {
-    const timeLeft = finJun - new Date();
-    if (timeLeft > 0) {
-      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-      timerJun.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    } else {
-      timerJun.textContent = "Tiempo agotado";
-    }
-  };
-
-  // Iniciar el temporizador
-  updateTimer();
-  setInterval(updateTimer, 1000);
-
-  if (hoy >= inicio && hoy <= finDic) {
-    dic.classList.remove("hidden");
-
-    // Cerrar al hacer clic fuera del div
-    document.addEventListener("click", function cerrar(e) {
-      if (!dic.contains(e.target)) {
-        dic.classList.add("hidden");
-        document.removeEventListener("click", cerrar);
-      }
-    });
-  }
-
-  if (hoy >= inicio && hoy <= finJun) {
-    jun.classList.remove("hidden");
-
-    // Cerrar al hacer clic fuera del div
-    document.addEventListener("click", function cerrar(e) {
-      if (!jun.contains(e.target)) {
-        jun.classList.add("hidden");
-        document.removeEventListener("click", cerrar);
-      }
-    });
-  }
-
-
-}
-function mostrarJun() {
+function dentroDeRango(inicio, fin) {
   const hoy = new Date();
-  const inicio = new Date(2026, 5, 4, 0, 0, 0); // 4 de Junio de 2026
-  const fin = new Date(2026, 11, 31, 23, 59, 59); // 31 de Diciembre de 2026
-  const jun = document.getElementById("mensaje-jun");
+  return hoy >= inicio && hoy <= fin;
+}
+
+// Muestra un mensaje y lo cierra al hacer clic fuera de él
+function abrirMensaje(el) {
+  if (!el) return;
+  el.classList.remove("hidden");
+
+  // Se registra en el siguiente ciclo para que el clic que lo abrió no lo cierre
+  setTimeout(function () {
+    document.addEventListener("click", function cerrar(e) {
+      if (!el.contains(e.target)) {
+        el.classList.add("hidden");
+        document.removeEventListener("click", cerrar);
+      }
+    });
+  }, 0);
+}
+
+function mostrarMensajes() {
+  if (dentroDeRango(DIC_INICIO, DIC_FIN)) {
+    abrirMensaje(document.getElementById("mensaje-dic1"));
+  }
+  if (dentroDeRango(JUN_INICIO, JUN_FIN)) {
+    abrirMensaje(document.getElementById("mensaje-jun1"));
+  }
+  if (dentroDeRango(NOV_INICIO, NOV_FIN)) {
+    abrirMensaje(document.getElementById("mensaje-nov1"));
+  }
+}
+
+function mostrarJun() {
+  const fin = JUN_FIN;
   const timerJun = document.getElementById("mensaje-jun-timer");
+  if (!timerJun) return;
+
+  let intervalo;
 
   // Actualizar el temporizador cada segundo
   function updateTimer() {
     const hoy = new Date();
     const totalTimeLeft = fin - hoy;
+
+    // Si el tiempo terminó, se detiene el contador
+    if (totalTimeLeft <= 0) {
+      timerJun.textContent = "Tiempo agotado";
+      clearInterval(intervalo);
+      return;
+    }
 
     // 1. Calcular la diferencia base en meses y años
     let months = (fin.getFullYear() - hoy.getFullYear()) * 12 + (fin.getMonth() - hoy.getMonth());
@@ -95,23 +91,8 @@ function mostrarJun() {
   }
 
   // Ejecutar inmediatamente al cargar y luego cada segundo
+  intervalo = setInterval(updateTimer, 1000);
   updateTimer();
-  setInterval(updateTimer, 1000);
-
-  // Mostrar el contenedor solo si estamos dentro del rango de fechas
-  if (hoy >= inicio && hoy <= fin) {
-    if (jun) {
-      jun.classList.remove("hidden");
-
-      // Cerrar al hacer clic fuera del div
-      document.addEventListener("click", function cerrar(e) {
-        if (!jun.contains(e.target)) {
-          jun.classList.add("hidden");
-          document.removeEventListener("click", cerrar);
-        }
-      });
-    }
-  }
 }
 
 (function () {
@@ -126,12 +107,13 @@ function mostrarJun() {
     const clearBtn = document.getElementById("clearBtn");
     const main = document.getElementById('mainPage'); // Pagina principal
     const hm = document.getElementById('hm'); // Menu de inicio
-    const jun = document.getElementById('mensaje-jun'); // Mensaje de Junio
-    const junFuction = mostrarJun(); // Función para mostrar el mensaje de Junio
+
+    mostrarJun(); // Inicia el contador del mensaje de Junio
 
     // Si ya está autorizado, ocultar la pantalla de bloqueo
     if (localStorage.getItem(STORAGE_KEY) === "1") {
         screen.classList.add("hidden");
+        mostrarMensajes();
     } else {
         main.classList.add('hidden'); // Ocultar la lista de poemas
         hm.classList.add('hidden'); // Mostrar el menu de inicio
@@ -146,7 +128,7 @@ function mostrarJun() {
             err.style.display = "none";
             main.classList.remove('hidden'); // Mostrar la lista de poemas
             hm.classList.remove('hidden'); // Ocultar el menu de inicio
-            jun.classList.remove('hidden'); // Mostrar el mensaje de Junio
+            mostrarMensajes(); // Mostrar los mensajes especiales
         } else {
             err.style.display = "block";
             input.value = "";
@@ -158,10 +140,5 @@ function mostrarJun() {
         input.value = "";
         err.style.display = "none"; // Ocultar el mensaje de error al limpiar
         input.focus();
-    });
-
-    // Permitir Enter y accesibilidad mínima
-    input.addEventListener("keydown", function (e) {
-        if (e.key === "Enter") form.requestSubmit();
     });
 })();
